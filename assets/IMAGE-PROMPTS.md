@@ -128,3 +128,10 @@ Scene/backdrop: Preserve smoked mirrored tabletop in the bottom 10% with elegant
 Invariants: Keep exact clear cylindrical body, proportional narrow long neck and clear low faceted crystal stopper, gold angular Art Deco linework and flying-bird silhouette. Preserve exact printed text on bottle "Nightbird", "VODKA", "40% | 700ml", "22 STANDARD DRINKS". Do not redesign packaging, exaggerate neck, change logo or invent awards.
 Constraints: Change composition and aspect ratio only. No additional text or headings, no people, fruit, ice, glasses, bar props, extra bottles, watermarks, haze, smoke or special effects. The bottle should remain beautifully transparent and realistic, not blue or opaque.
 ```
+
+## Supplied age-gate film — `age-bird-film.mp4` and `age-bird-poster.jpg`
+
+- Source: user-supplied `4073696-hd_1280_720_30fps.mp4` from Downloads, a bird perched in silhouette against a grey sky.
+- Processing: trimmed from the clean keyframe at 3.003 seconds to avoid the opening black/fade, excluded the ending fade, removed the audio track and enabled MP4 fast-start. The H.264 video stream was copied without re-encoding.
+- Deployed film: 1280 × 720, approximately 14.58 seconds and 1.3 MB, with no audio track. The JPEG poster is a nonblack frame extracted three seconds into the trimmed film.
+- This footage and poster are derived from the supplied video; no new image or video content was generated. The original download remains unchanged.

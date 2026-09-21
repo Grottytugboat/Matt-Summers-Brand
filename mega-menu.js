@@ -10,8 +10,7 @@
     const desktopTrigger = document.createElement("button");
     desktopTrigger.type = "button";
     desktopTrigger.className = "mega-menu-trigger";
-    desktopTrigger.innerHTML =
-      'Explore the brands <span aria-hidden="true">＋</span>';
+    desktopTrigger.innerHTML = 'Explore the brands <span aria-hidden="true">＋</span>';
     collectionLink?.replaceWith(desktopTrigger);
     document.getElementById("mobile-nav")?.remove();
 
@@ -19,7 +18,8 @@
       {
         id: "mountain",
         name: "Mountain",
-        detail: "Fruit Tingle · Vodka premix",
+        category: "Vodka premix",
+        detail: "Fruit Tingle",
         line: "A brighter perspective.",
         href: "/",
         image: "/assets/mountain-campaign.webp",
@@ -27,7 +27,8 @@
       {
         id: "bensons",
         name: "Benson’s",
-        detail: "Bourbon with cola",
+        category: "Bourbon & cola",
+        detail: "The original. Double Black.",
         line: "Real bourbon. No compromise.",
         href: "/bensons/",
         image: "/assets/bensons-campaign.webp",
@@ -35,15 +36,14 @@
       {
         id: "nightbird",
         name: "Nightbird",
-        detail: "Vodka · 40% alc/vol · 700ml",
-        line: "A spirit of distinction.",
+        category: "Vodka",
+        detail: "40% alc/vol · 700ml",
+        line: "A spirit less ordinary.",
         href: "/nightbird/",
         image: "/assets/nightbird-campaign.webp",
       },
     ];
     const currentPath = window.location.pathname.replace(/\/index\.html$/, "/");
-    const currentBrand = brands.find((brand) => brand.href === currentPath);
-    const initialBrand = currentBrand || brands[2];
     const dialog = document.createElement("dialog");
     dialog.id = "brand-menu";
     dialog.className = "mega-menu";
@@ -51,123 +51,54 @@
     dialog.innerHTML = `
       <div class="mega-menu-inner">
         <div class="mega-menu-top">
-          <p class="mega-menu-kicker"><span class="mega-menu-spark" aria-hidden="true">✳</span> The collection</p>
+          <p class="mega-menu-kicker"><span class="mega-menu-symbol" aria-hidden="true"><i></i><i></i><i></i></span> The collection <span class="mega-menu-count">01 — 03</span></p>
           <button class="mega-menu-close" type="button" aria-label="Close brand menu" autofocus>
             <span>Close</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
           </button>
         </div>
-        <div class="mega-menu-main">
-          <div class="mega-menu-directory">
-            <div class="mega-menu-intro">
-              <h2 id="brand-menu-title">A collection<br>of <em>character.</em></h2>
-              <p>Three distinct spirits. Find your perspective.</p>
-            </div>
-            <nav aria-label="Explore our brands">
-              <ol class="mega-menu-brands"></ol>
-            </nav>
-          </div>
-          <figure class="mega-menu-preview" aria-hidden="true">
-            <div class="mega-menu-preview-art"></div>
-            <div class="mega-menu-preview-shade"></div>
-            <span class="mega-menu-preview-label">Discover a different spirit</span>
-            <figcaption><p class="mega-menu-preview-name"></p><p class="mega-menu-preview-line"></p></figcaption>
-            <span class="mega-menu-preview-arrow" aria-hidden="true">↗</span>
-          </figure>
+        <div class="mega-menu-intro">
+          <h2 id="brand-menu-title">Choose your <em>spirit.</em></h2>
+          <p>Three brands.<br> Distinctly their own.</p>
         </div>
-        <nav class="mega-menu-local" aria-label="On this page" hidden><span>On this page</span></nav>
+        <nav aria-label="Explore our brands">
+          <ol class="mega-menu-brands"></ol>
+        </nav>
         <div class="mega-menu-bottom">
-          <a class="mega-menu-collection" href="/collection/">Explore the full collection <span aria-hidden="true">↗</span></a>
-          <p>Distinct in character. Shared in spirit.<span>18+ · Please enjoy responsibly.</span></p>
+          <a class="mega-menu-collection" href="/collection/"><span>See the whole collection</span><span aria-hidden="true">↗</span></a>
+          <nav class="mega-menu-local" aria-label="On this page" hidden><span>On this page</span></nav>
         </div>
+        <p class="mega-menu-responsible"><span>Distinct in character. Shared in spirit.</span><span>18+ · Please enjoy responsibly.</span></p>
       </div>`;
     document.body.append(dialog);
 
-    const list = /** @type {HTMLOListElement} */ (
-      dialog.querySelector(".mega-menu-brands")
-    );
-    const artwork = /** @type {HTMLDivElement} */ (
-      dialog.querySelector(".mega-menu-preview-art")
-    );
-    const preview = /** @type {HTMLElement} */ (
-      dialog.querySelector(".mega-menu-preview")
-    );
-    const previewName = /** @type {HTMLParagraphElement} */ (
-      dialog.querySelector(".mega-menu-preview-name")
-    );
-    const previewLine = /** @type {HTMLParagraphElement} */ (
-      dialog.querySelector(".mega-menu-preview-line")
-    );
-    const localNav = /** @type {HTMLElement} */ (
-      dialog.querySelector(".mega-menu-local")
-    );
+    const list = /** @type {HTMLOListElement} */ (dialog.querySelector(".mega-menu-brands"));
+    const localNav = /** @type {HTMLElement} */ (dialog.querySelector(".mega-menu-local"));
     /** @type {Map<string, HTMLImageElement>} */
-    const previewImages = new Map();
-    /** @type {Map<string, HTMLImageElement>} */
-    const thumbnails = new Map();
-    /** @type {Map<string, HTMLAnchorElement>} */
-    const brandLinks = new Map();
-    const mobileLayout = window.matchMedia("(max-width: 760px)");
-    let selectedBrand = initialBrand.id;
-
-    /** @param {typeof brands[number]} brand */
-    function selectPreview(brand) {
-      selectedBrand = brand.id;
-      brandLinks.forEach((link, id) =>
-        link.classList.toggle("is-previewed", id === brand.id),
-      );
-      if (mobileLayout.matches) return;
-      const image = previewImages.get(brand.id);
-      if (!image) return;
-      if (!image.getAttribute("src")) image.src = brand.image;
-      if (image.complete && image.naturalWidth > 0) revealPreview(brand);
-    }
-
-    /** @param {typeof brands[number]} brand */
-    function revealPreview(brand) {
-      if (selectedBrand !== brand.id) return;
-      previewImages.forEach((image, id) =>
-        image.classList.toggle("is-visible", id === brand.id),
-      );
-      preview.dataset.brand = brand.id;
-      previewName.textContent = brand.name;
-      previewLine.textContent = brand.line;
-    }
+    const brandImages = new Map();
 
     brands.forEach((brand, index) => {
       const item = document.createElement("li");
       const link = document.createElement("a");
       link.href = brand.href;
       link.className = `mega-menu-brand mega-menu-brand-${brand.id}`;
-      if (brand.href === currentPath) link.setAttribute("aria-current", "page");
+      const isCurrent = brand.href === currentPath;
+      if (isCurrent) link.setAttribute("aria-current", "page");
       link.innerHTML = `
-        <span class="mega-menu-number" aria-hidden="true">0${index + 1}</span>
-        <span class="mega-menu-brand-copy"><span class="mega-menu-brand-name">${brand.name}</span><span class="mega-menu-brand-detail">${brand.detail}</span></span>
+        <span class="mega-menu-card-meta"><span>0${index + 1} / ${brand.category}</span>${isCurrent ? '<span class="mega-menu-current">You’re here</span>' : ""}</span>
+        <span class="mega-menu-brand-heading"><span class="mega-menu-brand-name">${brand.name}</span><span class="mega-menu-brand-line">${brand.line}</span></span>
         <span class="mega-menu-brand-image" aria-hidden="true"></span>
-        <span class="mega-menu-brand-arrow" aria-hidden="true">↗</span>`;
-      const thumbnail = document.createElement("img");
-      thumbnail.alt = "";
-      thumbnail.width = 96;
-      thumbnail.height = 112;
-      thumbnail.decoding = "async";
-      link.querySelector(".mega-menu-brand-image")?.append(thumbnail);
-      thumbnails.set(brand.id, thumbnail);
-      item.append(link);
-      list.append(item);
-      brandLinks.set(brand.id, link);
-      link.addEventListener("pointerenter", (event) => {
-        if (event.pointerType !== "touch") selectPreview(brand);
-      });
-      link.addEventListener("focus", () => selectPreview(brand));
-
+        <span class="mega-menu-card-bottom"><span class="mega-menu-brand-copy"><span class="mega-menu-brand-detail">${brand.detail}</span><span class="mega-menu-brand-action">Enter ${brand.name}</span></span><span class="mega-menu-brand-arrow" aria-hidden="true">↗</span></span>`;
       const image = document.createElement("img");
       image.alt = "";
-      image.className = `mega-menu-campaign mega-menu-campaign-${brand.id}`;
-      image.width = 1024;
-      image.height = 1024;
+      image.width = 1672;
+      image.height = 941;
       image.decoding = "async";
-      image.addEventListener("load", () => revealPreview(brand));
-      artwork.append(image);
-      previewImages.set(brand.id, image);
+      // Fetch only when the menu is opened; all three images are then visible.
+      image.addEventListener("load", () => image.classList.add("is-loaded"));
+      link.querySelector(".mega-menu-brand-image")?.append(image);
+      brandImages.set(brand.id, image);
+      item.append(link);
+      list.append(item);
     });
 
     header.querySelectorAll('.desktop-nav a[href^="#"]').forEach((anchor) => {
@@ -179,8 +110,7 @@
       localNav.hidden = false;
     });
     const fullCollection = dialog.querySelector(".mega-menu-collection");
-    if (currentPath === "/collection/")
-      fullCollection?.setAttribute("aria-current", "page");
+    if (currentPath === "/collection/") fullCollection?.setAttribute("aria-current", "page");
 
     /** @type {HTMLElement[]} */
     const triggers = [desktopTrigger];
@@ -188,85 +118,64 @@
     /** @type {HTMLElement | null} */
     let returnFocus = null;
 
-    function loadVisibleImages() {
-      if (mobileLayout.matches) {
-        brands.forEach((brand) => {
-          const image = thumbnails.get(brand.id);
-          if (image && !image.getAttribute("src")) image.src = brand.image;
-        });
-      } else {
-        selectPreview(
-          brands.find((brand) => brand.id === selectedBrand) || initialBrand,
-        );
-      }
-    }
-
     triggers.forEach((trigger) => {
       trigger.setAttribute("aria-haspopup", "dialog");
       trigger.setAttribute("aria-controls", dialog.id);
       trigger.setAttribute("aria-expanded", "false");
       trigger.addEventListener("click", () => {
         const shell = document.getElementById("site-shell");
-        if (
-          document.body.classList.contains("age-pending") ||
-          shell?.inert ||
-          document.querySelector("dialog[open]")
-        )
-          return;
+        if (document.body.classList.contains("age-pending") || shell?.inert || document.querySelector("dialog[open]")) return;
         returnFocus = trigger;
-        selectedBrand = initialBrand.id;
-        brandLinks.forEach((link, id) =>
-          link.classList.toggle("is-previewed", id === selectedBrand),
-        );
-        loadVisibleImages();
+        brands.forEach((brand) => {
+          const image = brandImages.get(brand.id);
+          if (image && !image.getAttribute("src")) image.src = brand.image;
+        });
         dialog.showModal();
         dialog.scrollTop = 0;
         document.body.classList.add("dialog-open");
-        triggers.forEach((button) =>
-          button.setAttribute("aria-expanded", "true"),
-        );
+        triggers.forEach((button) => button.setAttribute("aria-expanded", "true"));
       });
     });
 
-    dialog
-      .querySelector(".mega-menu-close")
-      ?.addEventListener("click", () => dialog.close());
+    dialog.querySelector(".mega-menu-close")?.addEventListener("click", () => dialog.close());
+    dialog.addEventListener("keydown", (event) => {
+      if (event.key !== "Tab") return;
+      const focusable = [.../** @type {NodeListOf<HTMLElement>} */ (
+        dialog.querySelectorAll('a[href], button:not([disabled])')
+      )].filter((element) => element.getClientRects().length > 0);
+      const first = focusable[0];
+      const last = focusable.at(-1);
+      if (!first || !last) return;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
     let backdropPress = false;
     /** @param {MouseEvent} event */
     function outsideDialog(event) {
       const bounds = dialog.getBoundingClientRect();
-      return (
-        event.clientX < bounds.left ||
-        event.clientX > bounds.right ||
-        event.clientY < bounds.top ||
-        event.clientY > bounds.bottom
-      );
+      return event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom;
     }
     dialog.addEventListener("pointerdown", (event) => {
       backdropPress = event.target === dialog && outsideDialog(event);
     });
     dialog.addEventListener("click", (event) => {
-      if (backdropPress && event.target === dialog && outsideDialog(event))
-        dialog.close();
+      if (backdropPress && event.target === dialog && outsideDialog(event)) dialog.close();
       backdropPress = false;
     });
     dialog.addEventListener("close", () => {
-      triggers.forEach((trigger) =>
-        trigger.setAttribute("aria-expanded", "false"),
-      );
-      if (!document.querySelector("dialog[open]"))
-        document.body.classList.remove("dialog-open");
+      triggers.forEach((trigger) => trigger.setAttribute("aria-expanded", "false"));
+      if (!document.querySelector("dialog[open]")) document.body.classList.remove("dialog-open");
       if (returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
-    });
-    mobileLayout.addEventListener("change", () => {
-      if (dialog.open) loadVisibleImages();
     });
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initialiseBrandMenu, {
-      once: true,
-    });
+    document.addEventListener("DOMContentLoaded", initialiseBrandMenu, { once: true });
   } else {
     initialiseBrandMenu();
   }

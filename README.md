@@ -1,4 +1,4 @@
-# Mountain & Benson’s — Brand Showcase
+# Mountain, Benson’s & Nightbird — Brand Showcase
 
 Four responsive brand experiences built from the existing Matt Summers project:
 
@@ -58,6 +58,8 @@ Browser checks cover all four routes at 320, 390, 768 and 1440 px, image loading
 
 ## Nightbird and the shared navigation
 
-Nightbird uses supplied bottle references: vodka, 40% alc/vol, 700 mL, 22 standard drinks. Its campaign images have independent desktop and mobile compositions. The shared mega menu provides direct access to all three brands, a full-collection link, image previews and mobile page shortcuts. It supports keyboard focus, Escape, backdrop dismissal and focus restoration.
+Nightbird uses supplied bottle references: vodka, 40% alc/vol, 700 mL, 22 standard drinks. Its campaign images have independent desktop and mobile compositions. The shared mega menu provides direct access to all three brands, a full-collection link, three cinematic brand cards and mobile page shortcuts. It supports keyboard focus, Escape, backdrop dismissal and focus restoration.
 
-The full-screen age introduction includes one decorative animated gold bird, an accessible pause control and a static reduced-motion presentation. The decorative animation does not replace or weaken age confirmation.
+The full-screen age introduction uses the user-supplied bird film with route-specific branding, muted playback, pause/play and retry controls. The film is trimmed, stripped of audio and served locally with a nonblack poster. It is requested only for visitors who need age confirmation; reduced-motion visitors see the still poster until they explicitly choose playback. Playback pauses when the page is hidden and stops when the gate closes. The film does not replace or weaken age confirmation.
+
+The home page introduces Mountain’s visual spirit before Fruit Tingle. Benson’s uses a warm, framed brand story and classic serving ritual. Nightbird includes keyboard-accessible bottle-detail exploration. A sticky main header keeps brand navigation available throughout the pages, while the collection provides an editorial introduction to each brand.

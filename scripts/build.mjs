@@ -23,7 +23,7 @@ for (const entry of [
 }
 await mkdir(new URL("assets/", output), { recursive: true });
 for (const name of await readdir(new URL("assets/", root))) {
-  if (/\.(webp|jpe?g|svg|ico)$/.test(name)) {
+  if (/\.(webp|jpe?g|svg|ico|mp4)$/.test(name)) {
     await cp(
       new URL(`assets/${name}`, root),
       new URL(`assets/${name}`, output),
