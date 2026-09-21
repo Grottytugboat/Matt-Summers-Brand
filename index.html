@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MOUNTAIN — Fruit Tingle · Vodka Soda with Wild Fruit</title>
+<meta name="description" content="Fruit Tingle by Mountain. A 7% vodka soda with natural wild raspberry, blood orange, lime and blackberry. Series 01. Serve ice cold.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101014'/%3E%3Cpath d='M21 43V22l11 13 11-13v21' fill='none' stroke='%23fff' stroke-width='4'/%3E%3Cpath d='M18 33h28' stroke='%23ff2e9a' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css?v=6">
+</head>
+<body>
+
+<!-- loader -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <svg class="loader-mark" viewBox="0 0 120 120">
+      <circle class="lm-ring" cx="60" cy="60" r="54" fill="none" stroke="#101014" stroke-width="2.5"/>
+      <path class="lm-m" d="M38 82V38l22 26 22-26v44" fill="none" stroke="#101014" stroke-width="6.5"/>
+      <path class="lm-bar" d="M20 60h80" fill="none" stroke="#ff2e9a" stroke-width="3.5"/>
+    </svg>
+    <div class="loader-word">MOUNTAIN</div>
+    <div class="loader-sub">フルーツティングル · SERIES 01</div>
+    <div class="loader-progress"><i id="loader-bar"></i></div>
+    <div class="loader-pct" id="loader-pct">0</div>
+  </div>
+</div>
+
+<!-- age gate -->
+<div class="age-gate" id="age-gate" role="dialog" aria-modal="true" aria-label="Age verification">
+  <div class="age-card">
+    <div class="age-hello">HELLO</div>
+    <div class="age-konnichiwa">こんにちは</div>
+    <p class="age-copy">Are you of legal drinking age in your country?</p>
+    <div class="age-actions" id="age-actions">
+      <button class="btn btn-ink" id="gate-yes" type="button">YES!</button>
+      <button class="btn btn-ghost" id="gate-no" type="button">NOT YET</button>
+    </div>
+    <p class="age-denied" id="age-denied" hidden>No worries — the mountain will wait.<br>Come back when you're of age.</p>
+    <p class="age-note">Drink responsibly. Legal purchasing age only.</p>
+  </div>
+</div>
+
+<!-- nav -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Mountain home">
+    <svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true">
+      <circle cx="32" cy="32" r="29" fill="none" stroke="#101014" stroke-width="3"/>
+      <path d="M20 44V20l12 14 12-14v24" fill="none" stroke="#101014" stroke-width="4.5"/>
+      <path d="M13 33h38" stroke="#ff2e9a" stroke-width="2.5"/>
+    </svg>
+    <span class="brand-word">MOUNTAIN</span>
+  </a>
+  <nav class="nav-links" id="nav-links">
+    <a href="#flavours">FLAVOURS</a>
+    <a href="#shop">SHOP</a>
+    <a href="#join">HELLO YES!</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="cart-btn" type="button" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 8h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 8z"/>
+        <path d="M9 10V6a3 3 0 0 1 6 0v4"/>
+      </svg>
+      <span class="badge" id="cart-count" hidden>0</span>
+    </button>
+    <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- hero -->
+  <section class="hero" id="hero">
+    <div class="hero-fruits" id="hero-fruits" aria-hidden="true"></div>
+
+    <div class="hero-top">
+      <p class="hero-eyebrow">FROM THE MOUNTAIN'S FAVOURITE PREMIX VODKA SODA <span class="jp">ウォッカソーダ</span></p>
+      <h1 class="hero-title">
+        <span class="line line-fruit">Fruit</span>
+        <span class="line line-tingle">Tingle</span>
+      </h1>
+    </div>
+
+    <div class="hero-can-wrap" id="hero-can-wrap" aria-hidden="true">
+      <img id="hero-can" data-can="original" alt="">
+      <div class="hero-can-shadow"></div>
+    </div>
+
+    <div class="hero-bottom">
+      <a class="btn btn-blue" href="#flavours">EXPLORE</a>
+      <div class="hero-stats">
+        <span><b>7%</b> ALC/VOL</span><i>✦</i>
+        <span><b>4</b> REAL FRUITS</span><i>✦</i>
+        <span><b>355</b> ML SLIM</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span>ASK FOR A FRUIT TINGLE</span><b>✦</b><span class="jp">フルーツティングル</span><b>✦</b><span class="outline">SERVE ICE COLD</span><b>✦</b><span>7% ALC/VOL</span><b>✦</b>
+      </div>
+      <div class="marquee-group">
+        <span>ASK FOR A FRUIT TINGLE</span><b>✦</b><span class="jp">フルーツティングル</span><b>✦</b><span class="outline">SERVE ICE COLD</span><b>✦</b><span>7% ALC/VOL</span><b>✦</b>
+      </div>
+    </div>
+  </div>
+
+  <!-- flavours -->
+  <section class="section" id="flavours">
+    <div class="container">
+      <p class="eyebrow">フレーバー · FLAVOURS</p>
+      <h2 class="sec-title">DISCOVER THE<br>FRUIT TINGLE FLAVOURS&hellip;</h2>
+      <p class="hello-yes">Hello YES!</p>
+    </div>
+
+    <div class="flav-panel" style="--flav:#ff2d55;--flav-deep:#c90048">
+      <div class="container fp-grid">
+        <div class="fp-copy">
+          <h3 class="fp-name">WILD<br>RASPBERRY</h3>
+          <p class="fp-en">VODKA SODA WITH NATURAL RASPBERRY</p>
+          <p class="fp-jp">天然のラズベリー</p>
+          <p class="fp-desc">Dark, jammy, a little feral. The berry that started the riot.</p>
+          <a class="btn btn-paper" href="#shop">EXPLORE</a>
+        </div>
+        <div class="fp-can"><img data-can="raspberry" data-parallax="0.10" alt="Wild Raspberry Fruit Tingle can"></div>
+      </div>
+    </div>
+
+    <div class="flav-panel fp-flip" style="--flav:#ff7a1a;--flav-deep:#d85e00">
+      <div class="container fp-grid">
+        <div class="fp-copy">
+          <h3 class="fp-name">BLOOD<br>ORANGE</h3>
+          <p class="fp-en">VODKA SODA WITH NATURAL BLOOD ORANGE</p>
+          <p class="fp-jp">天然のブラッドオレンジ</p>
+          <p class="fp-desc">Sharp citrus with a sunset sting. Loud in the best way.</p>
+          <a class="btn btn-paper" href="#shop">EXPLORE</a>
+        </div>
+        <div class="fp-can"><img data-can="orange" data-parallax="0.10" alt="Blood Orange Fruit Tingle can"></div>
+      </div>
+    </div>
+
+    <div class="flav-panel" style="--flav:#8fce1e;--flav-deep:#6da300">
+      <div class="container fp-grid">
+        <div class="fp-copy">
+          <h3 class="fp-name">ZESTY<br>LIME</h3>
+          <p class="fp-en">VODKA SODA WITH NATURAL LIME</p>
+          <p class="fp-jp">天然のライム</p>
+          <p class="fp-desc">The voltage. Pure electric rind, straight off the zest.</p>
+          <a class="btn btn-paper" href="#shop">EXPLORE</a>
+        </div>
+        <div class="fp-can"><img data-can="lime" data-parallax="0.10" alt="Zesty Lime Fruit Tingle can"></div>
+      </div>
+    </div>
+
+    <div class="flav-panel fp-flip" style="--flav:#8a5cff;--flav-deep:#6534e0">
+      <div class="container fp-grid">
+        <div class="fp-copy">
+          <h3 class="fp-name">BLACK<br>BERRY</h3>
+          <p class="fp-en">VODKA SODA WITH NATURAL BLACKBERRY</p>
+          <p class="fp-jp">天然のブラックベリー</p>
+          <p class="fp-desc">Moody depth. Purple thunder in a slim can.</p>
+          <a class="btn btn-paper" href="#shop">EXPLORE</a>
+        </div>
+        <div class="fp-can"><img data-can="blackberry" data-parallax="0.10" alt="Blackberry Fruit Tingle can"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- sticky premix moment -->
+  <section class="premix" id="premix">
+    <div class="premix-sticky">
+      <h2 class="premix-line l1"><span>FROM THE MOUNTAIN'S</span></h2>
+      <div class="premix-can"><img data-can="original" alt="Fruit Tingle can"></div>
+      <h2 class="premix-line l2"><span>FAVOURITE PREMIX<i class="ast">*</i></span></h2>
+      <p class="premix-note">*7% ALC/VOL · SERIES 01 · SERVE AT −2°C</p>
+    </div>
+  </section>
+
+  <!-- tilted band -->
+  <div class="tilt-band-wrap" aria-hidden="true">
+    <div class="marquee tilt-band">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>SERVE ICE COLD</span><b>✦</b><span class="jp">氷のように冷やして</span><b>✦</b><span>−2°C</span><b>✦</b><span>SERVE ICE COLD</span><b>✦</b><span class="jp">氷のように冷やして</span><b>✦</b><span>−2°C</span><b>✦</b>
+        </div>
+        <div class="marquee-group">
+          <span>SERVE ICE COLD</span><b>✦</b><span class="jp">氷のように冷やして</span><b>✦</b><span>−2°C</span><b>✦</b><span>SERVE ICE COLD</span><b>✦</b><span class="jp">氷のように冷やして</span><b>✦</b><span>−2°C</span><b>✦</b>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- shop -->
+  <section class="section" id="shop">
+    <div class="container">
+      <p class="eyebrow">シリーズ01 · SERIES 01</p>
+      <h2 class="sec-title">GET THE DROP</h2>
+      <p class="sec-sub">Limited first press. When it's gone, it's gone.</p>
+      <div class="p-grid">
+        <article class="p-card">
+          <div class="p-img"><img data-can="original" alt="Fruit Tingle 4-pack can"></div>
+          <div class="p-info">
+            <h3 class="p-name">FRUIT TINGLE — 4-PACK</h3>
+            <p class="p-meta">4 × 355ML SLIM CANS</p>
+            <div class="p-row">
+              <span class="p-price">$18</span>
+              <button class="btn btn-ink btn-sm" type="button" data-add data-id="4pack" data-name="Fruit Tingle 4-Pack" data-price="18">ADD</button>
+            </div>
+          </div>
+        </article>
+        <article class="p-card">
+          <div class="p-badge" style="--b:#ff2e9a">MOST WANTED</div>
+          <div class="p-img"><img data-can="original" alt="Fruit Tingle 12-pack can"></div>
+          <div class="p-info">
+            <h3 class="p-name">FRUIT TINGLE — 12-PACK</h3>
+            <p class="p-meta">12 × 355ML SLIM CANS</p>
+            <div class="p-row">
+              <span class="p-price">$48</span>
+              <button class="btn btn-ink btn-sm" type="button" data-add data-id="12pack" data-name="Fruit Tingle 12-Pack" data-price="48">ADD</button>
+            </div>
+          </div>
+        </article>
+        <article class="p-card">
+          <div class="p-badge" style="--b:#101014">LOW STOCK</div>
+          <div class="p-img"><img data-can="original" alt="Fruit Tingle full case can"></div>
+          <div class="p-info">
+            <h3 class="p-name">THE FULL CASE</h3>
+            <p class="p-meta">24 × 355ML SLIM CANS</p>
+            <div class="p-row">
+              <span class="p-price">$89</span>
+              <button class="btn btn-ink btn-sm" type="button" data-add data-id="case" data-name="The Full Case" data-price="89">ADD</button>
+            </div>
+          </div>
+        </article>
+        <article class="p-card">
+          <div class="p-badge" style="--b:#8a5cff">MERCH</div>
+          <div class="p-img"><img data-poster alt="Series 01 poster"></div>
+          <div class="p-info">
+            <h3 class="p-name">SERIES 01 POSTER</h3>
+            <p class="p-meta">A2 SCREEN PRINT · NUMBERED</p>
+            <div class="p-row">
+              <span class="p-price">$35</span>
+              <button class="btn btn-ink btn-sm" type="button" data-add data-id="poster" data-name="Series 01 Poster" data-price="35">ADD</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- join -->
+  <section class="join" id="join">
+    <div class="container">
+      <div class="join-card">
+        <p class="join-jp">マウンテンの友達になる？</p>
+        <h2 class="join-title">BECOME A FRIEND<br>OF MOUNTAIN?</h2>
+        <p class="hello-yes hello-yes-lg">Hello YES!</p>
+        <p class="join-sub">First access to limited drops, secret flavours, and absolutely zero spam.</p>
+        <form class="join-form" id="join-form">
+          <input type="email" id="join-email" placeholder="you@midnight.com" required aria-label="Email address">
+          <button class="btn btn-ink" type="submit">SIGN ME UP</button>
+        </form>
+        <p class="join-note">By signing up you confirm you are of legal drinking age.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- footer -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="#top" aria-label="Mountain home">
+        <svg viewBox="0 0 64 64" width="34" height="34" aria-hidden="true">
+          <circle cx="32" cy="32" r="29" fill="none" stroke="#101014" stroke-width="3"/>
+          <path d="M20 44V20l12 14 12-14v24" fill="none" stroke="#101014" stroke-width="4.5"/>
+          <path d="M13 33h38" stroke="#ff2e9a" stroke-width="2.5"/>
+        </svg>
+        <span class="brand-word">MOUNTAIN</span>
+      </a>
+      <p>Alpine vodka sodas with the volume at eleven. Filtered by the mountain, canned for the session.</p>
+    </div>
+    <div class="footer-col">
+      <h4>SHOP</h4>
+      <a href="#shop">4-Pack — $18</a>
+      <a href="#shop">12-Pack — $48</a>
+      <a href="#shop">Full Case — $89</a>
+      <a href="#shop">Merch</a>
+    </div>
+    <div class="footer-col">
+      <h4>EXPLORE</h4>
+      <a href="#flavours">Flavours</a>
+      <a href="#shop">Series 01</a>
+      <a href="#join">Tingle List</a>
+    </div>
+    <div class="footer-col">
+      <h4>FOLLOW</h4>
+      <a href="#top">Instagram</a>
+      <a href="#top">TikTok</a>
+      <a href="#top">X</a>
+    </div>
+  </div>
+  <div class="container footer-legal">
+    <p>© <span id="year">2026</span> Mountain Vodka Co. Concept store — no real orders (yet). 7% ALC/VOL. Please enjoy responsibly. Legal purchasing age only. Never tingle and drive.</p>
+  </div>
+</footer>
+
+<!-- cart drawer -->
+<div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
+<aside class="drawer" id="drawer" aria-label="Cart">
+  <div class="drawer-head">
+    <h3>YOUR STASH</h3>
+    <button class="icon-btn" id="drawer-close" type="button" aria-label="Close cart">✕</button>
+  </div>
+  <div class="drawer-items" id="drawer-items"></div>
+  <div class="drawer-foot">
+    <div class="drawer-total"><span>SUBTOTAL</span><b id="drawer-total">$0</b></div>
+    <button class="btn btn-ink drawer-checkout" id="checkout-btn" type="button">CHECKOUT — COMING SOON</button>
+    <p class="drawer-note">This is a design concept. No real orders — the tingle is free for now.</p>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="app.js?v=6"></script>
+</body>
+</html>
