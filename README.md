@@ -1,32 +1,43 @@
-# Matt Summers Brand
+# Mountain & Benson’s — Brand Showcase
 
-**MOUNTAIN — Fruit Tingle** · a bright, flavour-forward concept store for a 7% vodka soda with wild fruit. Single-page site with an age gate, parallax hero can, colour-blocked flavour panels, a sticky big-type moment, shop with a working concept cart, and a "Hello YES!" subscribe block.
+Three responsive brand experiences built from the existing Matt Summers project:
 
-## Run it
+- `/` — Mountain Fruit Tingle, with a contemporary black, ivory and citrus-green identity.
+- `/bensons/` — Benson’s Original Double Black, in warm black, cream and antique gold.
+- `/collection/` — a neutral portfolio page connecting the brands without inventing a parent company.
 
-No build step, no dependencies, works offline.
+This version is a presentation showcase. There are no prices, cart, checkout, orders or newsletter collection. A public contact destination can be added when approved details are supplied. Pages request no search indexing while the showcase is under review.
 
-```bash
-# option 1 — just open it
-open index.html
+## Preview
 
-# option 2 — serve it
-python3 -m http.server 8000
-# → http://localhost:8000
+No dependencies or build step are needed. Serve this folder using a static web server, for example:
+
+```sh
+python3 -m http.server 4173
 ```
 
-## What's inside
+Open http://localhost:4173. Root-relative asset links mean the site should be served, rather than opened directly as a file.
 
-- **`index.html`** — page structure (age gate, hero, marquee, flavours, PREMIX moment, shop, subscribe, footer, cart drawer)
-- **`styles.css`** — light "paper + ink + flavour colour" design system, fully responsive
-- **`app.js`** — everything visual is generated in code at runtime:
-  - procedural canvas artwork for every can (one colourway per flavour), the poster, and all floating fruit
-  - a lerped scroll-parallax engine (hero can lags/drifts/fades, flavour cans drift, floating fruit fly at different speeds, sticky PREMIX section scales/rotates the can while the type slides apart)
-  - concept cart with drawer, quantities and toasts
-- **`vendor/` + `fonts/`** — vendored locally so the site runs with zero network
+## Deployment
 
-## Notes
+Import this repository into Vercel using the **Other** framework preset and repository root. No build command or output-directory override is required. `vercel.json` supplies clean routes, preview indexing headers and basic response headers.
 
-- Design concept inspired by the energy of kirinhyoketsu.com.au; all artwork, copy and code here are original and generated procedurally.
-- Fonts: Bebas Neue, Kaushan Script, Space Grotesk (Google Fonts, vendored).
-- Concept store only — no real checkout; please enjoy responsibly.
+## Behaviour and accessibility
+
+- An 18+ confirmation dialog appears once per browser session, shared between the three routes.
+- The page stays unavailable until age confirmation; rejection leaves the gate in place.
+- Session-storage restrictions are handled without breaking the current-page experience.
+- Product tabs support arrow keys, Home and End; mobile menus support Escape.
+- Native dialogs manage focus for age confirmation and privacy information.
+- Reduced-motion preferences are respected. No animated 3D runtime is required.
+- Fonts and images are served locally; campaign images have dedicated mobile compositions.
+
+## Assets and copy
+
+The original user-supplied Mountain image appears in the product detail section. Campaign imagery was generated from supplied Mountain and Benson’s references using the built-in image generation tool. See `assets/IMAGE-PROMPTS.md` for full prompts. Optimised `.webp` versions are committed and deployed; high-resolution PNG working originals remain local.
+
+Product facts are limited to the supplied artwork: Mountain Fruit Tingle / vodka / 7% alc/vol; Benson’s Double Black / bourbon with cola / 6.5% ABV / 375 mL. No unconfirmed ranges, can sizes, stockists, awards, manufacturing claims or company-ownership relationships are published. Campaign visuals are presentation concepts, not approved final packaging photography.
+
+## Verification
+
+Browser checks cover all three routes at 320, 390, 768 and 1440 px, image loading, layout overflow, age acceptance/rejection, session navigation, product tabs and keyboard controls, mobile menus, and the privacy dialog. Generated imagery and desktop/mobile screenshots are visually reviewed before deployment.
