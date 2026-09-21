@@ -1,0 +1,388 @@
+/* A shared invitation into the collection. All motion is decorative. */
+.age-gate {
+  --gate-blue: #070f20;
+  --gate-gold: #d8bc7f;
+  --gate-cream: #f4efdf;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  color: var(--gate-cream);
+  background: var(--gate-blue);
+  color-scheme: dark;
+}
+.age-gate::backdrop {
+  background: var(--gate-blue);
+  backdrop-filter: none;
+}
+.age-experience {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  isolation: isolate;
+  padding: 32px clamp(24px, 5vw, 80px) 22px;
+}
+.age-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 77% 24%, #34405665 0, transparent 36%),
+    radial-gradient(ellipse at 13% 87%, #172f4966 0, transparent 43%),
+    linear-gradient(135deg, #091526 0%, #091121 45%, #060c19 100%);
+}
+.age-atmosphere::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid #dbc2900d;
+}
+.age-orbit {
+  position: absolute;
+  top: -20vw;
+  right: -12vw;
+  width: 69vw;
+  height: 69vw;
+  min-width: 580px;
+  min-height: 580px;
+  border: 1px solid #dbc29012;
+  border-radius: 50%;
+  transform: rotate(-28deg) scaleY(0.72);
+}
+.age-flight {
+  position: absolute;
+  top: 16%;
+  left: 74%;
+  width: clamp(65px, 7.8vw, 125px);
+  color: var(--gate-gold);
+  opacity: 0.8;
+  animation: age-flight 24s ease-in-out infinite;
+}
+.age-bird {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  fill: currentColor;
+  filter: drop-shadow(0 0 14px #dec1871a);
+}
+.age-bird-left,
+.age-bird-right {
+  transform-box: view-box;
+  transform-origin: 50% 62%;
+}
+.age-bird-left {
+  animation: age-wing-left 3.4s ease-in-out infinite;
+}
+.age-bird-right {
+  animation: age-wing-right 3.4s ease-in-out infinite;
+}
+@keyframes age-flight {
+  0%,
+  100% {
+    transform: translate(-5vw, 10px) rotate(-14deg) scale(0.92);
+  }
+  35% {
+    transform: translate(4vw, -27px) rotate(5deg) scale(1);
+  }
+  70% {
+    transform: translate(2vw, 28px) rotate(13deg) scale(0.96);
+  }
+}
+@keyframes age-wing-left {
+  0%,
+  100% {
+    transform: rotate(0deg) scaleY(1);
+  }
+  50% {
+    transform: rotate(7deg) scaleY(0.64);
+  }
+}
+@keyframes age-wing-right {
+  0%,
+  100% {
+    transform: rotate(0deg) scaleY(1);
+  }
+  50% {
+    transform: rotate(-7deg) scaleY(0.64);
+  }
+}
+.age-gate.age-motion-paused .age-flight,
+.age-gate.age-motion-paused .age-bird-left,
+.age-gate.age-motion-paused .age-bird-right,
+.age-gate:not([open]) .age-flight,
+.age-gate:not([open]) .age-bird-left,
+.age-gate:not([open]) .age-bird-right {
+  animation-play-state: paused;
+}
+.age-masthead {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  min-height: 26px;
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 3px;
+  color: #e1d3b4;
+}
+.age-masthead span:last-child {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #929dad;
+}
+.age-gate .age-card {
+  width: 100%;
+  max-width: 650px;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  padding: 62px 0 48px;
+  text-align: center;
+}
+.age-gate .age-card .eyebrow {
+  color: var(--gate-gold);
+  font-size: 9px;
+  letter-spacing: 2.4px;
+  line-height: 1.6;
+}
+.age-gate .age-card h2 {
+  margin: 26px 0 0;
+  color: var(--gate-cream);
+  font:
+    400 clamp(55px, 6.4vw, 92px)/1.03 Georgia,
+    "Times New Roman",
+    serif;
+  letter-spacing: -3.4px;
+}
+.age-gate .age-card h2 em {
+  color: var(--gate-gold);
+  font-style: italic;
+  font-weight: 400;
+}
+.age-rule {
+  width: 40px;
+  height: 1px;
+  margin: 31px 0 24px;
+  background: #d8bc7f77;
+}
+.age-gate .age-card #age-description {
+  max-width: 340px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #bdc5d2;
+}
+.age-gate .age-actions {
+  width: 100%;
+  margin: 26px 0 0;
+  gap: 12px;
+}
+.age-gate .age-actions .button {
+  width: 268px;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 56px;
+  padding: 19px 23px;
+  color: #131a24;
+  background: var(--gate-gold);
+  border: 1px solid var(--gate-gold);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+.age-gate .age-actions .button:hover {
+  background: #e8cd95;
+  border-color: #e8cd95;
+}
+.age-gate .age-actions .button:focus-visible {
+  outline-color: var(--gate-cream);
+}
+.age-gate .age-no {
+  color: #b3bdcd;
+  min-height: 42px;
+  padding: 10px 24px;
+  font-size: 11px;
+  text-decoration-color: #b3bdcd66;
+}
+.age-gate .age-no:hover {
+  color: var(--gate-cream);
+}
+.age-gate .age-note {
+  margin: 25px 0 0;
+  font-size: 8px;
+  letter-spacing: 1.8px;
+  color: #8290a6;
+}
+.age-gate .age-denied {
+  width: 100%;
+  max-width: 390px;
+  color: var(--gate-cream);
+  padding: 22px 25px;
+  border: 1px solid #d8bc7f40;
+  background: #d8bc7f06;
+  margin: 25px 0 0;
+}
+.age-gate .age-denied p:first-child {
+  font:
+    400 23px/1.4 Georgia,
+    serif;
+  color: var(--gate-gold);
+}
+.age-gate .age-denied p + p {
+  font-size: 12px;
+  line-height: 1.75;
+  margin-top: 12px;
+  color: #bdc5d2;
+}
+.age-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  color: #8290a6;
+}
+.age-bottom > p {
+  font-size: 8px;
+  line-height: 1.7;
+  letter-spacing: 1.5px;
+}
+.age-motion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 0 12px 12px;
+  min-height: 44px;
+  color: #b3bdcd;
+  font-size: 10px;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+.age-motion::before {
+  content: "";
+  width: 6px;
+  height: 9px;
+  border-left: 1px solid;
+  border-right: 1px solid;
+}
+.age-motion[aria-pressed="true"]::before {
+  width: 8px;
+  height: 8px;
+  border: 1px solid;
+}
+.age-motion:disabled {
+  opacity: 0.6;
+}
+@media (max-width: 700px) {
+  .age-experience {
+    padding: 23px 24px 15px;
+  }
+  .age-masthead {
+    justify-content: center;
+  }
+  .age-masthead span:last-child {
+    display: none;
+  }
+  .age-gate .age-card {
+    padding: 90px 0 35px;
+  }
+  .age-gate .age-card h2 {
+    font-size: clamp(48px, 12vw, 70px);
+    letter-spacing: -2.2px;
+    margin-top: 22px;
+  }
+  .age-gate .age-card .eyebrow {
+    font-size: 8px;
+    letter-spacing: 1.8px;
+  }
+  .age-gate .age-card #age-description {
+    max-width: 290px;
+    font-size: 12px;
+  }
+  .age-flight {
+    top: 79px;
+    left: 66%;
+    width: 67px;
+  }
+  .age-orbit {
+    top: -390px;
+    right: -270px;
+  }
+  .age-rule {
+    margin: 24px 0 19px;
+  }
+  .age-gate .age-actions {
+    margin-top: 23px;
+    gap: 8px;
+  }
+  .age-gate .age-note {
+    font-size: 7px;
+    letter-spacing: 1.4px;
+    margin-top: 20px;
+  }
+  .age-bottom > p {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+  .age-motion {
+    font-size: 9px;
+  }
+}
+@media (max-height: 700px) {
+  .age-gate .age-card {
+    padding-top: 38px;
+    padding-bottom: 25px;
+  }
+  .age-gate .age-card h2 {
+    font-size: clamp(44px, 6.5vw, 64px);
+    margin-top: 17px;
+    letter-spacing: -2px;
+  }
+  .age-rule {
+    margin: 20px 0 16px;
+  }
+  .age-gate .age-actions {
+    margin-top: 20px;
+  }
+  .age-gate .age-note {
+    margin-top: 17px;
+  }
+  .age-flight {
+    top: 71px;
+    left: 81%;
+    width: 53px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .age-flight,
+  .age-bird-left,
+  .age-bird-right {
+    animation: none !important;
+  }
+  .age-flight {
+    transform: rotate(-12deg);
+  }
+  .age-gate .age-actions .button {
+    transition: none;
+  }
+}

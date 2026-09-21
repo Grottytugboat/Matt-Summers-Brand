@@ -1,0 +1,419 @@
+body[data-brand="nightbird"] {
+  --ink: #0c1828;
+  --paper: #f0ece3;
+  --lime: #d9c292;
+  --muted: #626773;
+  --line: #d3cfc5;
+  --pink: #ba9354;
+}
+.nightbird-wordmark > span {
+  font:
+    400 35px/1 Georgia,
+    serif;
+  letter-spacing: -1.5px;
+}
+.nightbird-wordmark small {
+  font: 400 8px/1 "Space Grotesk";
+  letter-spacing: 4px;
+  text-align: center;
+  margin-top: 8px;
+}
+.nightbird-hero {
+  background: #0a1421;
+}
+.nightbird-hero .hero-art img {
+  object-position: 70% 50%;
+}
+.nightbird-hero .hero-shade {
+  background:
+    linear-gradient(90deg, #0913229c, transparent 78%),
+    linear-gradient(0deg, #09132280, transparent 30%);
+}
+.nightbird-hero h1 {
+  font:
+    400 clamp(70px, 7.7vw, 118px)/1.03 Georgia,
+    "Times New Roman",
+    serif;
+  letter-spacing: -5px;
+}
+.nightbird-hero h1 em {
+  font-style: italic;
+  white-space: nowrap;
+}
+.nightbird-hero .hero-content {
+  padding-top: clamp(85px, 12vh, 145px);
+}
+.nightbird-hero .hero-content .eyebrow {
+  color: #d3c098;
+  letter-spacing: 2.2px;
+}
+.deco-star {
+  font-size: 25px;
+  line-height: 1;
+  margin-right: 7px;
+}
+.nightbird-hero .hero-description {
+  margin-top: 35px;
+  font-size: 14px;
+  color: #c8cdd4;
+}
+.nightbird-hero .button {
+  margin-top: 35px;
+  background: transparent;
+  border: 1px solid #c8b487;
+  color: #e3d4b5;
+}
+.nightbird-hero .button:hover {
+  background: #c8b48720;
+}
+.nightbird-hero .vertical-caption {
+  color: #d3c098;
+}
+.nightbird-intro .display {
+  font:
+    400 clamp(50px, 6.5vw, 92px)/1.06 Georgia,
+    serif;
+  letter-spacing: -3px;
+}
+.nightbird-intro .display em {
+  font-weight: 400;
+  color: #887049;
+}
+.deco-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #9b8053;
+  font-size: 27px;
+  margin-bottom: 28px;
+}
+.deco-divider span {
+  width: 50px;
+  height: 1px;
+  background: #b7a17b;
+}
+.nightbird-product {
+  background: #e9e5dc;
+}
+.nightbird-product .product-visual {
+  background: #0a1421;
+  min-height: 830px;
+}
+.nightbird-product .product-visual img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  mix-blend-mode: normal;
+}
+.nightbird-product .product-copy {
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+.nightbird-product-title {
+  font:
+    400 clamp(58px, 5.8vw, 90px)/1.06 Georgia,
+    serif;
+  letter-spacing: -3px;
+}
+.nightbird-product-title em {
+  color: #8c7146;
+  font-weight: 400;
+}
+.nightbird-product .product-subtitle {
+  font-size: 19px;
+  margin-top: 27px;
+}
+.nightbird-product .product-facts {
+  border-color: #bcb5a8;
+}
+.nightbird-product .product-facts dd {
+  font-size: 20px;
+}
+.nightbird-product .note-tabs {
+  border-color: #bcb5a8;
+}
+.nightbird-product .note-panel {
+  color: #525763;
+}
+.nightbird-product .visual-caption {
+  color: #b7b9bc;
+}
+.nightbird-design {
+  background: #0b1727;
+  color: #e9e4da;
+}
+.nightbird-design .section-label {
+  border-color: #ffffff25;
+  color: #c7b68f;
+}
+.nightbird-design .section-label span:last-child {
+  color: #87909c;
+}
+.design-heading {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  align-items: end;
+  gap: 10%;
+  padding: 55px 0;
+}
+.design-heading h2 {
+  font:
+    400 clamp(44px, 5.9vw, 90px)/1.1 Georgia,
+    serif;
+  letter-spacing: -3px;
+}
+.design-heading h2 em {
+  font-weight: 400;
+  color: #d8c39c;
+}
+.design-heading > p {
+  font-size: 13px;
+  color: #a4acb6;
+  line-height: 1.8;
+  padding-bottom: 7px;
+}
+.design-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 55px;
+  padding-top: 40px;
+  border-top: 1px solid #ffffff25;
+}
+.design-details article > span {
+  font-size: 9px;
+  color: #bfaa81;
+  letter-spacing: 1px;
+}
+.design-details h3 {
+  font:
+    400 28px/1.3 Georgia,
+    serif;
+  margin: 30px 0 18px;
+  letter-spacing: -0.5px;
+}
+.design-details p {
+  color: #a4acb6;
+  font-size: 12px;
+  line-height: 1.8;
+  max-width: 280px;
+}
+.nightbird-collection {
+  padding: 75px var(--pad);
+  background: #d9cbb0;
+}
+.nightbird-collection .eyebrow {
+  font-size: 9px;
+  color: #625845;
+}
+.nightbird-collection > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin: 25px 0;
+}
+.nightbird-collection h2 {
+  font:
+    400 clamp(42px, 6.5vw, 90px)/1.1 Georgia,
+    serif;
+  letter-spacing: -3px;
+}
+.nightbird-collection h2 em {
+  font-weight: 400;
+}
+.nightbird-collection > a > span {
+  font-size: 45px;
+  transition: transform 0.3s;
+}
+.nightbird-collection > a:hover > span {
+  transform: translate(5px, -5px);
+}
+.nightbird-collection > p:last-child {
+  font-size: 12px;
+  color: #625845;
+}
+.nightbird-footer .footer-wordmark {
+  font:
+    400 clamp(45px, 6vw, 86px)/1 Georgia,
+    serif;
+  letter-spacing: -3px;
+}
+@media (max-width: 1100px) {
+  .nightbird-hero h1 {
+    font-size: 8vw;
+    letter-spacing: -3px;
+  }
+  .nightbird-product .product-visual {
+    min-height: 760px;
+  }
+  .design-details {
+    gap: 35px;
+  }
+}
+@media (max-width: 900px) {
+  .nightbird-hero .hero-content {
+    padding-top: 105px;
+  }
+  .nightbird-hero h1 {
+    font-size: 8.5vw;
+  }
+  .nightbird-product-title {
+    font-size: 57px;
+  }
+  .nightbird-product .product-copy {
+    padding: 55px 30px;
+  }
+  .design-heading {
+    gap: 7%;
+  }
+  .design-details {
+    gap: 25px;
+  }
+  .design-details h3 {
+    font-size: 24px;
+  }
+}
+@media (max-width: 700px) {
+  .nightbird-wordmark > span {
+    font-size: 29px;
+    letter-spacing: -1px;
+  }
+  .nightbird-wordmark small {
+    font-size: 6px;
+    letter-spacing: 3px;
+  }
+  .nightbird-hero {
+    min-height: 900px;
+  }
+  .nightbird-hero .hero-content {
+    padding-top: 49px;
+    padding-bottom: 490px;
+  }
+  .nightbird-hero h1 {
+    font-size: clamp(49px, 11.9vw, 77px);
+    letter-spacing: -2.3px;
+    line-height: 1.05;
+  }
+  .nightbird-hero .hero-content .eyebrow {
+    font-size: 7px;
+    letter-spacing: 1.3px;
+    margin-bottom: 28px;
+  }
+  .nightbird-hero .deco-star {
+    font-size: 21px;
+    margin-right: 1px;
+  }
+  .nightbird-hero .hero-description {
+    font-size: 12px;
+    margin-top: 25px;
+  }
+  .nightbird-hero .button {
+    margin-top: 25px;
+    font-size: 9px;
+    padding: 15px 19px;
+    gap: 28px;
+  }
+  .nightbird-hero .hero-art img {
+    object-position: center bottom;
+  }
+  .nightbird-hero .hero-shade {
+    background: linear-gradient(180deg, #0913216b, transparent 46%, #09132133);
+  }
+  .nightbird-intro .display {
+    font-size: 60px;
+    letter-spacing: -2px;
+  }
+  .nightbird-intro .intro-grid {
+    gap: 30px;
+  }
+  .deco-divider {
+    margin-bottom: 23px;
+  }
+  .nightbird-product .product-visual {
+    height: 660px;
+    min-height: 660px;
+  }
+  .nightbird-product .product-copy {
+    padding: 48px 28px;
+  }
+  .nightbird-product-title {
+    font-size: 68px;
+  }
+  .nightbird-product .product-subtitle {
+    font-size: 19px;
+  }
+  .nightbird-product .product-facts dd {
+    font-size: 19px;
+  }
+  .nightbird-product .note-panel {
+    min-height: 120px;
+  }
+  .design-heading {
+    grid-template-columns: 1fr;
+    gap: 27px;
+    padding: 37px 0;
+  }
+  .design-heading h2 {
+    font-size: clamp(39px, 10.3vw, 65px);
+    letter-spacing: -1.5px;
+  }
+  .design-heading > p {
+    font-size: 12px;
+  }
+  .design-details {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-top: 30px;
+  }
+  .design-details article {
+    display: grid;
+    grid-template-columns: 35px 1fr;
+    gap: 0 5px;
+  }
+  .design-details article > span {
+    padding-top: 9px;
+  }
+  .design-details h3 {
+    margin: 0 0 12px;
+    font-size: 27px;
+  }
+  .design-details p {
+    grid-column: 2;
+    max-width: 100%;
+  }
+  .nightbird-collection {
+    padding: 45px 24px;
+  }
+  .nightbird-collection .eyebrow {
+    font-size: 7px;
+  }
+  .nightbird-collection h2 {
+    font-size: 42px;
+    letter-spacing: -2px;
+  }
+  .nightbird-collection > a {
+    gap: 15px;
+  }
+  .nightbird-collection > a > span {
+    font-size: 30px;
+  }
+  .nightbird-collection > p:last-child {
+    font-size: 10px;
+  }
+  .nightbird-footer .footer-wordmark {
+    font-size: 44px;
+  }
+}
+
+.nightbird-product .product-visual img {
+  object-fit: contain;
+}
+@media (max-width: 700px) {
+  .nightbird-product-title {
+    font-size: clamp(54px, 17.4vw, 68px);
+  }
+  .nightbird-product > * {
+    min-width: 0;
+  }
+}

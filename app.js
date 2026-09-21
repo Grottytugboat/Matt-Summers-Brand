@@ -1,11 +1,74 @@
 (() => {
   "use strict";
-  const $ = (selector, root = document) => root.querySelector(selector);
+  /**
+   * The shared showcase markup supplies each required selector.
+   * @param {string} selector
+   * @param {ParentNode} [root]
+   * @returns {HTMLElement}
+   */
+  const $ = (selector, root = document) =>
+    /** @type {HTMLElement} */ (root.querySelector(selector));
+  /**
+   * @param {string} selector
+   * @param {ParentNode} [root]
+   * @returns {HTMLElement[]}
+   */
   const $$ = (selector, root = document) => [
-    ...root.querySelectorAll(selector),
+    .../** @type {NodeListOf<HTMLElement>} */ (root.querySelectorAll(selector)),
   ];
   const shell = $("#site-shell");
-  const gate = $("#age-gate");
+  const gate = /** @type {HTMLDialogElement} */ ($("#age-gate"));
+  if (gate) {
+    gate.innerHTML = `
+      <div class="age-experience">
+        <div class="age-atmosphere" aria-hidden="true">
+          <div class="age-orbit"></div>
+          <div class="age-flight">
+            <svg class="age-bird" viewBox="0 0 240 140" focusable="false" aria-hidden="true">
+              <g class="age-bird-left"><path d="M120 79C97 65 83 28 17 18c20 15 36 35 52 49-17-8-34-19-48-18 28 16 48 29 76 37l21 9Z"/></g>
+              <g class="age-bird-right"><path d="M120 79c23-14 37-51 103-61-20 15-36 35-52 49 17-8 34-19 48-18-28 16-48 29-76 37l-21 9Z"/></g>
+              <path d="M117 74c-2-8-1-15 3-19 3 4 5 11 3 19l6 18-2 18 11 20-18-10-18 10 11-20-2-18Z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="age-masthead"><span>THE COLLECTION</span><span>DISTINCTIVE SPIRITS</span></div>
+        <div class="age-card">
+          <p class="eyebrow">A COLLECTION OF CHARACTER</p>
+          <h2 id="age-title">Before we<br><em>take flight.</em></h2>
+          <div class="age-rule" aria-hidden="true"></div>
+          <p id="age-description">Are you 18 or over and of legal drinking age in your location?</p>
+          <div class="age-actions">
+            <button class="button button-lime" id="gate-yes" type="button">Yes, I’m 18+ <span aria-hidden="true">↗</span></button>
+            <button class="age-no" id="gate-no" type="button">I’m under 18</button>
+          </div>
+          <div class="age-denied" id="age-denied" role="status" tabindex="-1" hidden><p>We’ll save the discovery for another time.</p><p>This collection is for adults 18 and over who are of legal drinking age in their location.</p></div>
+          <p class="age-note">GOOD SPIRITS. GROWN-UP COMPANY.</p>
+        </div>
+        <div class="age-bottom"><p>PLEASE ENJOY RESPONSIBLY.</p><button class="age-motion" id="age-motion" type="button" aria-pressed="false">Pause motion</button></div>
+      </div>`;
+    const motionButton = /** @type {HTMLButtonElement} */ ($("#age-motion"));
+    const motionPreference = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    );
+    let motionPaused = false;
+    const updateMotion = () => {
+      const stopped = motionPaused || motionPreference.matches;
+      gate.classList.toggle("age-motion-paused", stopped);
+      motionButton.setAttribute("aria-pressed", String(stopped));
+      motionButton.disabled = motionPreference.matches;
+      motionButton.textContent = motionPreference.matches
+        ? "Reduced motion"
+        : motionPaused
+          ? "Resume motion"
+          : "Pause motion";
+    };
+    motionButton.addEventListener("click", () => {
+      motionPaused = !motionPaused;
+      updateMotion();
+    });
+    motionPreference.addEventListener("change", updateMotion);
+    updateMotion();
+  }
   let ageConfirmed = false;
   try {
     ageConfirmed = sessionStorage.getItem("spirits-age-confirmed") === "yes";
@@ -31,46 +94,27 @@
     $("#gate-no").addEventListener("click", () => {
       $(".age-actions").hidden = true;
       $("#age-denied").hidden = false;
+      $("#age-denied").focus({ preventScroll: true });
     });
   }
   if (ageConfirmed) {
     shell.inert = false;
     document.body.classList.remove("age-pending");
   }
-  const menuButton = $(".menu-toggle");
-  const menu = $("#mobile-nav");
-  function closeMenu(restoreFocus = false) {
-    menuButton?.setAttribute("aria-expanded", "false");
-    if (menu) menu.hidden = true;
-    document.body.classList.remove("menu-open");
-    if (restoreFocus) menuButton.focus();
-  }
-  menuButton?.addEventListener("click", () => {
-    const open = menuButton.getAttribute("aria-expanded") !== "true";
-    menuButton.setAttribute("aria-expanded", String(open));
-    menu.hidden = !open;
-    document.body.classList.toggle("menu-open", open);
-  });
-  $$("#mobile-nav a").forEach((link) =>
-    link.addEventListener("click", () => closeMenu()),
-  );
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !menu?.hidden) closeMenu(true);
-  });
-  window
-    .matchMedia("(min-width: 901px)")
-    .addEventListener("change", (event) => {
-      if (event.matches) closeMenu();
-    });
   $$('[role="tablist"]').forEach((list) => {
     const tabs = $$('[role="tab"]', list);
+    /** @param {HTMLElement} tab */
     const select = (tab) =>
       tabs.forEach((item) => {
         const active = item === tab;
         item.setAttribute("aria-selected", String(active));
         item.tabIndex = active ? 0 : -1;
-        document.getElementById(item.getAttribute("aria-controls")).hidden =
-          !active;
+        const panel = /** @type {HTMLElement} */ (
+          document.getElementById(
+            /** @type {string} */ (item.getAttribute("aria-controls")),
+          )
+        );
+        panel.hidden = !active;
       });
     tabs.forEach((tab, index) => {
       tab.addEventListener("click", () => select(tab));
@@ -89,7 +133,8 @@
       });
     });
   });
-  const privacy = $("#privacy-dialog");
+  const privacy = /** @type {HTMLDialogElement} */ ($("#privacy-dialog"));
+  /** @type {HTMLElement | undefined} */
   let previousFocus;
   $$("[data-privacy]").forEach((button) =>
     button.addEventListener("click", () => {
@@ -104,7 +149,7 @@
     previousFocus?.focus();
   });
   $$("[data-year]").forEach((el) => {
-    el.textContent = new Date().getFullYear();
+    el.textContent = String(new Date().getFullYear());
   });
   if (
     !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&

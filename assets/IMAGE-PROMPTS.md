@@ -1,6 +1,6 @@
 # Campaign image provenance
 
-Both campaign assets are AI-generated, reference-led product mockup photographs made with the built-in image generation tool. Product packaging references were supplied by the client. They are intended as website campaign artwork, not documentary photographs.
+These campaign assets are AI-generated, reference-led product mockup photographs made with the built-in image generation tool. Product packaging references were supplied by the client. They are intended as website campaign artwork, not documentary photographs.
 
 ## Mountain — `mountain-campaign.png`
 
@@ -87,3 +87,44 @@ Text: Preserve only the existing product label verbatim, including "BENSON'S", "
 Constraints: Change composition and aspect ratio only. Do not redesign can or label. No headings, poster typography, added text, slogans, people, hands, new objects or watermarks.
 ```
 
+## Nightbird — `nightbird-campaign.png`
+
+- Mode: built-in `image_gen`.
+- References: client-provided `IMG_3767.jpg` bottle comparison and `IMG_3727.jpg` single crystal-stopper bottle. The latter was authoritative for product appearance.
+- Output: 1672 × 941 landscape PNG.
+- Visual check: Clear tall cylindrical bottle, proportional neck, faceted clear stopper, gold Art Deco geometry and flying bird retained. Nightbird, VODKA, 40% | 700ml and standard-drinks label present. Dark midnight-blue copy space on the left. Generated packaging artwork is reference-led, not guaranteed pixel-identical.
+
+### Final prompt
+
+```text
+Use case: product-mockup
+Asset type: Wide 16:9 premium Nightbird Vodka website hero photograph.
+Primary request: Create an elegant photorealistic campaign image using the EXACT Nightbird Vodka bottle from the supplied photographs. Make this a premium studio product photograph without changing the product.
+Input images: Image 1 IMG_3767.jpg is supporting reference of the gold printed label and bottle family, specifically its RIGHT crystal-stopper bottle. Image 2 IMG_3727.jpg is the AUTHORITATIVE single-bottle reference for shape, length, glass, label placement, gold Art Deco geometry, flying-bird logo and clear faceted stopper. Preserve that second image's product faithfully.
+Subject: Exactly one tall clear cylindrical glass bottle containing clear vodka, straight narrow cylindrical body with gently rounded shoulder, long narrow neck, broad low transparent faceted crystal stopper, heavy clear base. Keep the exact relative height and width, neck about one quarter of total bottle height and stopper proportional to neck as shown. Thin muted champagne gold geometric Art Deco lines and panels appear across upper and lower body, same central ascending flying-bird silhouette and exact centered Nightbird serif logotype with small VODKA below.
+Text on the bottle, verbatim and legible: "Nightbird" / "VODKA" / "40% | 700ml" / "22 STANDARD DRINKS". Preserve the small outlined standard-drinks rectangle.
+Scene/backdrop: Quiet luxury midnight blue studio with almost-black blue background. Smoked mirrored tabletop with subtle convincing reflection beneath bottle. Understated architectural shadow lines only on the right, never distracting or geometric neon effects. No bar props, fruit, ice or glasses.
+Composition/framing: Landscape 16:9. Whole bottle at x=72 percent, fully visible including stopper and base, approximately 80 percent of canvas height, carefully lit to remain luminous and readable. Leftmost 45 percent remains deep midnight-blue clean negative space for a website headline, no bright objects or reflections there. Camera at bottle mid-height, verticals straight.
+Lighting/mood: Extremely refined luxury perfume-style glass product photography, precise long white edge reflections to define the transparent glass, faint cool midnight-blue reflections, softly glowing muted champagne-gold printed details, a warm subtle rim highlight. Product remains clear glass, never blue opaque glass. Rich darkness, restrained high-end art direction.
+Constraints: Preserve real bottle structure and printed design; no neck elongation, no new typography, no invented awards or certifications, no extra bottles, no people, no watermarks, no text outside the product, no fantasy levitation or splashes. Avoid exaggerated decorative gold or label redesign.
+```
+
+## Nightbird mobile — `nightbird-campaign-mobile.png`
+
+- Mode: built-in `image_gen`, reference edit.
+- Reference: `nightbird-campaign.png` generated above.
+- Output: 1024 × 1536 portrait PNG.
+- Visual check: Complete bottle centered below generous dark top space, stopper begins at approximately 45% image height. Product design and printed labeling retained.
+
+### Final prompt
+
+```text
+Use case: compositing
+Asset type: Portrait 2:3 mobile website hero photograph.
+Primary request: Recompose the supplied Nightbird Vodka campaign photograph into a portrait mobile hero, preserving this exact bottle, printed artwork, stopper, proportions, glass and midnight-blue / champagne-gold studio style.
+Input image: Image 1 is the edit target and exact product to preserve.
+Critical composition: Portrait 2:3 aspect ratio. The ENTIRE TOP 47% must be EMPTY deep midnight blue almost-black negative space, no bottle, stopper, architecture, reflection, or bright highlight. The bottle must be wholly contained in the LOWER HALF, centered horizontally x=50%, stopper top at y=49% and base at y=93% of overall canvas height. Keep the same long bottle proportions by scaling the entire bottle down uniformly, never stretching. On an 860px-tall website hero the first 400px should be blank dark headline space before product begins. Do not enlarge the bottle to fill this deliberate empty space.
+Scene/backdrop: Preserve smoked mirrored tabletop in the bottom 10% with elegant reflection directly below the bottle. Almost-black midnight blue above. Restrained architecture shadows and champagne light visible only low on the right behind the bottle. Fine white glass edge lighting and muted gold printed detail. No other objects.
+Invariants: Keep exact clear cylindrical body, proportional narrow long neck and clear low faceted crystal stopper, gold angular Art Deco linework and flying-bird silhouette. Preserve exact printed text on bottle "Nightbird", "VODKA", "40% | 700ml", "22 STANDARD DRINKS". Do not redesign packaging, exaggerate neck, change logo or invent awards.
+Constraints: Change composition and aspect ratio only. No additional text or headings, no people, fruit, ice, glasses, bar props, extra bottles, watermarks, haze, smoke or special effects. The bottle should remain beautifully transparent and realistic, not blue or opaque.
+```

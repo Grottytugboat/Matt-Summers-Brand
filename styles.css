@@ -1608,3 +1608,63 @@ body.age-pending {
     margin-top: 6px;
   }
 }
+
+.collection-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.brand-card-picture {
+  height: 500px;
+}
+.brand-card-name {
+  font-size: clamp(38px, 3.7vw, 61px);
+}
+.brand-card-name.nightbird-card-name {
+  font-family: Georgia, serif;
+  letter-spacing: -2px;
+  font-size: clamp(36px, 3.5vw, 58px);
+}
+.nightbird-card-picture img {
+  object-position: 69% 50%;
+}
+.brand-card-meta {
+  font-size: 9px;
+  flex-wrap: wrap;
+  gap: 5px 12px;
+}
+.footer-bottom nav {
+  flex-wrap: wrap;
+}
+@media (max-width: 1100px) and (min-width: 701px) {
+  .brand-card-picture {
+    height: 420px;
+  }
+  .brand-card-name {
+    left: 22px;
+    bottom: 32px;
+    font-size: 38px;
+  }
+  .brand-card-arrow {
+    right: 15px;
+    bottom: 25px;
+    width: 34px;
+    height: 34px;
+    font-size: 17px;
+  }
+  .brand-card-name.nightbird-card-name {
+    font-size: 36px;
+  }
+}
+@media (max-width: 700px) {
+  .collection-grid {
+    grid-template-columns: 1fr;
+  }
+  .brand-card-picture {
+    height: 440px;
+  }
+  .brand-card-name {
+    font-size: 55px;
+  }
+  .brand-card-name.nightbird-card-name {
+    font-size: 49px;
+  }
+}
