@@ -5,8 +5,16 @@
     "noEmit": true,
     "strict": true,
     "target": "ES2022",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "types": []
   },
-  "files": ["app.js", "mega-menu.js"]
+  "files": [
+    "app.js",
+    "mega-menu.js",
+    "house.js"
+  ]
 }

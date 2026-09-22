@@ -25,8 +25,16 @@
     /* Session storage may be disabled. */
   }
   if (gate && !ageConfirmed) {
+    const houseBrand = {
+      name: "SAVAGE SPIRITS",
+      category: "THE COLLECTION",
+      eyebrow: "DISTINCTIVE DRINKS. INDIVIDUAL CHARACTER.",
+      heading: "A world of<br><em>character.</em>",
+      note: "MOUNTAIN · BENSON’S · NIGHTBIRD",
+    };
     /** @type {Record<string, {name: string, category: string, eyebrow: string, heading: string, note: string}>} */
     const gateBrands = {
+      house: houseBrand,
       mountain: {
         name: "MOUNTAIN",
         category: "VODKA · FRUIT TINGLE",
@@ -48,13 +56,7 @@
         heading: "Before we<br><em>take flight.</em>",
         note: "NIGHTBIRD. DISTINCTIVE BY NATURE.",
       },
-      collection: {
-        name: "THE COLLECTION",
-        category: "DISTINCTIVE SPIRITS",
-        eyebrow: "INDIVIDUAL BRANDS. DISTINCTIVE SPIRITS.",
-        heading: "A collection<br><em>of character.</em>",
-        note: "GOOD SPIRITS. GROWN-UP COMPANY.",
-      },
+      collection: houseBrand,
     };
     const brandKey = document.body.dataset.brand || "collection";
     const brand = gateBrands[brandKey] || gateBrands.collection;

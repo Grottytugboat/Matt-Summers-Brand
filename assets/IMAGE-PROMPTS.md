@@ -135,3 +135,26 @@ Constraints: Change composition and aspect ratio only. No additional text or hea
 - Processing: trimmed from the clean keyframe at 3.003 seconds to avoid the opening black/fade, excluded the ending fade, removed the audio track and enabled MP4 fast-start. The H.264 video stream was copied without re-encoding.
 - Deployed film: 1280 × 720, approximately 14.58 seconds and 1.3 MB, with no audio track. The JPEG poster is a nonblack frame extracted three seconds into the trimmed film.
 - This footage and poster are derived from the supplied video; no new image or video content was generated. The original download remains unchanged.
+
+## Portfolio still life — `collective-still-life.webp`
+
+- Mode: built-in `image_gen`, three-product reference composition.
+- References: existing `mountain-campaign.webp`, `nightbird-campaign.webp`, and `bensons-campaign.webp` campaign photographs, each used as the product-design reference.
+- Original generated image: `collective-campaign.png` (ignored by Git under the existing campaign-source convention).
+- Deployed asset: `collective-still-life.webp`, 1672 × 941; companion JPEG: `collective-social.jpg`. Format conversion only; no programmatic scene changes.
+- Visual check: Three whole products, Nightbird centered, Benson’s left and Mountain right, on natural limestone plinths. Product names and alcohol markings retained. Top margin exceeds 30 pixels. AI-generated campaign presentation, not documentary photography or guaranteed pixel-identical packaging reproduction.
+
+### Final prompt
+
+```text
+Use case: product-mockup
+Asset type: A premium drinks portfolio homepage campaign photograph, landscape about 16:9 or 7:4.
+Primary request: Create one exquisitely art-directed editorial studio still life bringing the EXACT THREE supplied products together as a sophisticated collection. This is a real-product photograph, not a label redesign.
+Input images: Image 1 is the exact Mountain Vodka Fruit Tingle black slim can and label reference. Image 2 is the exact Nightbird Vodka clear glass bottle and gold printed design reference. Image 3 is the exact Benson's Original Double Black Bourbon with Cola black can and label reference. Use each reference for the product only, discard all original background props, fruit, glasses and scenery.
+Scene/backdrop: Sculptural pale warm travertine or limestone plinths and low pedestals with finely visible real porous mineral texture; restrained deep forest green / olive studio shadow background and warm off-white stone ground. Soft large directional natural-studio light from upper left makes beautiful subtle architectural shadows. Understated, elegant, tactile, premium luxury drinks editorial, polished commercial photography with natural restraint.
+Composition: All THREE complete products thoughtfully spaced around a centered group. Nightbird bottle is tall at center, Benson's can at lower left, Mountain can at lower right. Each has its own low sculptural stone pedestal at modest different heights that balances their differing sizes; keep natural physical relative scale, Nightbird bottle about twice a can's height, Mountain slim can a little taller than Benson's. No one product dominates overwhelmingly. All front labels face camera and are very legible. There is clear air between each product. Entire product bodies, tops, rims, stopper and bases MUST stay fully inside the image with generous minimum 30-pixel margins, ideally 8% breathing room. The group fills the central 65% of width. Landscape composition suitable for a website image beneath a large editorial headline. No page text belongs in this image.
+Mountain invariants: Black slim can, silver angular circular Mountain emblem, ornate printed citrus and gold leaf artwork, exact gold MOUNTAIN VODKA lettering, pink/blue handwritten Fruit Tingle script, exact 7% ALC/VOL marking, sharp but subtle condensation.
+Nightbird invariants: Tall clear cylindrical bottle, natural slender neck and low faceted crystal stopper, transparent glass and clear liquid, champagne-gold Art Deco geometric printing and flying-bird silhouette, exact Nightbird / VODKA / 40% | 700ml / 22 STANDARD DRINKS. Never exaggerate neck length or make glass opaque.
+Benson's invariants: Natural short broad black can, old-gold filigree, cream BENSON'S / ORIGINAL / DOUBLE BLACK / BOURBON / with Cola labeling, red and gold 6.5% ABV badge, 375ml marking. Preserve reference can shape and artwork.
+Constraints: Exactly these three branded products, never extra bottles/cans. No invented packaging, no new brands, no parent-company name, no added heading, tagline or words outside product labels, no awards, no props, no loose fruit, no ice, no glasses, no barrels, no people, no hands, no watermarks. Avoid cheap catalog white cutouts, busy composition, bright neon, excessive wet surface or cartoon CGI. Precise realistic material differentiation between clear glass, black aluminum and warm travertine.
+```

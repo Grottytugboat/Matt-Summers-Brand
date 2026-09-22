@@ -1,11 +1,12 @@
-# Mountain, Benson’s & Nightbird — Brand Showcase
+# Savage Spirits — Brand Showcase
 
-Four responsive brand experiences built from the existing Matt Summers project:
+Five responsive destinations built from the existing Matt Summers project. Savage Spirits is the working parent identity, pending name confirmation:
 
-- `/` — Mountain Fruit Tingle, with a contemporary black, ivory and citrus-green identity.
+- `/` — the Savage Spirits parent showcase, introducing the portfolio.
+- `/mountain/` — Mountain Fruit Tingle, with a contemporary black, ivory and citrus-green identity.
 - `/bensons/` — Benson’s Original Double Black, in warm black, cream and antique gold.
 - `/nightbird/` — Nightbird Vodka, with an Art Deco identity in midnight blue and champagne gold.
-- `/collection/` — a neutral portfolio page connecting the brands without inventing a parent company.
+- `/collection/` — the editorial collection, with direct links to each brand.
 
 This version is a presentation showcase. There are no prices, cart, checkout, orders or newsletter collection. A public contact destination can be added when approved details are supplied. Pages request no search indexing while the showcase is under review.
 
@@ -38,7 +39,7 @@ Import this repository into Vercel using the **Other** framework preset and repo
 
 ## Behaviour and accessibility
 
-- An 18+ confirmation dialog appears once per browser session, shared between the four routes.
+- An 18+ confirmation dialog appears once per browser session, shared between the five routes.
 - The page stays unavailable until age confirmation; rejection leaves the gate in place.
 - Session-storage restrictions are handled without breaking the current-page experience.
 - Product tabs support arrow keys, Home and End; mobile menus support Escape.
@@ -54,7 +55,7 @@ Product facts are limited to the supplied artwork: Mountain Fruit Tingle / vodka
 
 ## Verification
 
-Browser checks cover all four routes at 320, 390, 768 and 1440 px, image loading, layout overflow, age acceptance/rejection, session navigation, product tabs and keyboard controls, mobile menus, and the privacy dialog. Generated imagery and desktop/mobile screenshots are visually reviewed before deployment.
+Browser verification covers all five routes at 320, 390, 768 and 1440 px, image loading, layout overflow, age acceptance/rejection, session navigation, product tabs and keyboard controls, mobile menus, and the privacy dialog. Generated imagery and desktop/mobile screenshots are visually reviewed before deployment.
 
 ## Nightbird and the shared navigation
 
@@ -62,4 +63,8 @@ Nightbird uses supplied bottle references: vodka, 40% alc/vol, 700 mL, 22 standa
 
 The full-screen age introduction uses the user-supplied bird film with route-specific branding, muted playback, pause/play and retry controls. The film is trimmed, stripped of audio and served locally with a nonblack poster. It is requested only for visitors who need age confirmation; reduced-motion visitors see the still poster until they explicitly choose playback. Playback pauses when the page is hidden and stops when the gate closes. The film does not replace or weaken age confirmation.
 
-The home page introduces Mountain’s visual spirit before Fruit Tingle. Benson’s uses a warm, framed brand story and classic serving ritual. Nightbird includes keyboard-accessible bottle-detail exploration. A sticky main header keeps brand navigation available throughout the pages, while the collection provides an editorial introduction to each brand.
+The home page introduces the parent brand and its portfolio. The dedicated Mountain page introduces Mountain’s visual spirit before Fruit Tingle. Benson’s uses a warm, framed brand story and classic serving ritual. Nightbird includes keyboard-accessible bottle-detail exploration. A sticky main header keeps brand navigation available throughout the pages, while the collection provides an editorial introduction to each brand.
+
+## Parent brand architecture
+
+The homepage leads with Savage Spirits as the working parent identity, drawn from the supplied catalogue name. Mountain now has its own `/mountain/` product route, alongside Benson’s and Nightbird. The homepage includes a combined product still life, parent brand philosophy and accessible filters for spirits and ready-to-serve products. Shared navigation and breadcrumbs keep the parent home reachable from every brand. The brand name remains a presentation choice pending final confirmation; the site makes no claims about legal ownership or distribution coverage.

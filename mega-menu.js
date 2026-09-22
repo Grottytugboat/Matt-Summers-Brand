@@ -1,16 +1,33 @@
 (() => {
   "use strict";
 
+  // Shared parent identity. Change this one value if the house name changes.
+  const PARENT_NAME = "Savage Spirits";
+
   function initialiseBrandMenu() {
     const header = document.querySelector(".site-header");
     if (!header || document.getElementById("brand-menu")) return;
+
+    const wordmark = header.querySelector(".wordmark");
+    if (document.body.dataset.brand !== "house" && wordmark) {
+      const context = document.createElement("div");
+      context.className = "brand-context";
+      const parentLink = document.createElement("a");
+      parentLink.href = "/";
+      parentLink.className = "brand-parent-link";
+      parentLink.setAttribute("aria-label", `${PARENT_NAME} home`);
+      parentLink.innerHTML = `<span>${PARENT_NAME}</span><span aria-hidden="true">/</span><span>Our brands</span>`;
+      wordmark.before(context);
+      context.append(parentLink, wordmark);
+      header.classList.add("has-parent-identity");
+    }
 
     const collectionLink = header.querySelector(".desktop-nav a:last-child");
     const mobileTrigger = header.querySelector(".menu-toggle");
     const desktopTrigger = document.createElement("button");
     desktopTrigger.type = "button";
     desktopTrigger.className = "mega-menu-trigger";
-    desktopTrigger.innerHTML = 'Explore the brands <span aria-hidden="true">＋</span>';
+    desktopTrigger.innerHTML = 'Our brands <span aria-hidden="true">＋</span>';
     collectionLink?.replaceWith(desktopTrigger);
     document.getElementById("mobile-nav")?.remove();
 
@@ -21,7 +38,7 @@
         category: "Vodka premix",
         detail: "Fruit Tingle",
         line: "A brighter perspective.",
-        href: "/",
+        href: "/mountain/",
         image: "/assets/mountain-campaign.webp",
       },
       {
@@ -51,23 +68,28 @@
     dialog.innerHTML = `
       <div class="mega-menu-inner">
         <div class="mega-menu-top">
-          <p class="mega-menu-kicker"><span class="mega-menu-symbol" aria-hidden="true"><i></i><i></i><i></i></span> The collection <span class="mega-menu-count">01 — 03</span></p>
+          <a class="mega-menu-house" href="/" aria-label="${PARENT_NAME} home"><span>The house of</span><h2 id="brand-menu-title">${PARENT_NAME}</h2></a>
           <button class="mega-menu-close" type="button" aria-label="Close brand menu" autofocus>
             <span>Close</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
           </button>
         </div>
+        <nav class="mega-menu-house-nav" aria-label="${PARENT_NAME} navigation">
+          <a href="/"${currentPath === "/" ? ' aria-current="page"' : ""}>Home</a>
+          <a href="/#about">About</a>
+          <a href="/#brands">Our brands <span aria-hidden="true">↗</span></a>
+        </nav>
         <div class="mega-menu-intro">
-          <h2 id="brand-menu-title">Choose your <em>spirit.</em></h2>
-          <p>Three brands.<br> Distinctly their own.</p>
+          <h3>Our collection.</h3>
+          <p>Three distinct brands. One home.</p>
         </div>
         <nav aria-label="Explore our brands">
           <ol class="mega-menu-brands"></ol>
         </nav>
         <div class="mega-menu-bottom">
-          <a class="mega-menu-collection" href="/collection/"><span>See the whole collection</span><span aria-hidden="true">↗</span></a>
+          <a class="mega-menu-collection" href="/collection/"><span>View all brands</span><span aria-hidden="true">↗</span></a>
           <nav class="mega-menu-local" aria-label="On this page" hidden><span>On this page</span></nav>
         </div>
-        <p class="mega-menu-responsible"><span>Distinct in character. Shared in spirit.</span><span>18+ · Please enjoy responsibly.</span></p>
+        <p class="mega-menu-responsible"><span>${PARENT_NAME} · Our brands, together.</span><span>18+ · Please enjoy responsibly.</span></p>
       </div>`;
     document.body.append(dialog);
 
@@ -87,7 +109,7 @@
         <span class="mega-menu-card-meta"><span>0${index + 1} / ${brand.category}</span>${isCurrent ? '<span class="mega-menu-current">You’re here</span>' : ""}</span>
         <span class="mega-menu-brand-heading"><span class="mega-menu-brand-name">${brand.name}</span><span class="mega-menu-brand-line">${brand.line}</span></span>
         <span class="mega-menu-brand-image" aria-hidden="true"></span>
-        <span class="mega-menu-card-bottom"><span class="mega-menu-brand-copy"><span class="mega-menu-brand-detail">${brand.detail}</span><span class="mega-menu-brand-action">Enter ${brand.name}</span></span><span class="mega-menu-brand-arrow" aria-hidden="true">↗</span></span>`;
+        <span class="mega-menu-card-bottom"><span class="mega-menu-brand-copy"><span class="mega-menu-brand-detail">${brand.detail}</span><span class="mega-menu-brand-action">Explore ${brand.name}</span></span><span class="mega-menu-brand-arrow" aria-hidden="true">↗</span></span>`;
       const image = document.createElement("img");
       image.alt = "";
       image.width = 1672;
@@ -101,7 +123,7 @@
       list.append(item);
     });
 
-    header.querySelectorAll('.desktop-nav a[href^="#"]').forEach((anchor) => {
+    if (document.body.dataset.brand !== "house") header.querySelectorAll('.desktop-nav a[href^="#"]').forEach((anchor) => {
       const shortcut = document.createElement("a");
       shortcut.href = anchor.getAttribute("href") || "#main";
       shortcut.textContent = anchor.textContent;
@@ -111,6 +133,9 @@
     });
     const fullCollection = dialog.querySelector(".mega-menu-collection");
     if (currentPath === "/collection/") fullCollection?.setAttribute("aria-current", "page");
+    dialog.querySelectorAll('.mega-menu-house-nav a, .mega-menu-house').forEach((link) => {
+      link.addEventListener("click", () => dialog.close());
+    });
 
     /** @type {HTMLElement[]} */
     const triggers = [desktopTrigger];

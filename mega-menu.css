@@ -1,3 +1,8 @@
+.brand-context { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
+.brand-parent-link { display: inline-flex; align-items: center; gap: 7px; min-height: 24px; font-size: 8px; line-height: 1.2; letter-spacing: 0.35px; opacity: 0.8; white-space: nowrap; }
+.brand-parent-link > span:first-child { font-weight: 600; }
+.brand-parent-link:hover { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
+.brand-context .wordmark { flex-shrink: 0; }
 .desktop-nav .mega-menu-trigger {
   display: inline-flex;
   align-items: center;
@@ -12,10 +17,10 @@
 .mega-menu-trigger > span { font-size: 21px; line-height: 1; transition: transform 180ms ease; }
 .mega-menu-trigger:hover > span { transform: rotate(90deg); }
 .mega-menu {
-  --menu-paper: #f5f0e7;
-  --menu-ink: #101819;
-  --menu-muted: #b6b9b4;
-  --menu-line: #ffffff29;
+  --menu-paper: #f4f2e9;
+  --menu-ink: #223b2e;
+  --menu-muted: #657063;
+  --menu-line: #cdd2c5;
   position: fixed;
   inset: 0;
   width: calc(100% - 64px);
@@ -23,14 +28,14 @@
   max-height: calc(100dvh - 48px);
   margin: auto;
   padding: 0;
-  border: 1px solid #ffffff2b;
+  border: 1px solid #d4d7cb;
   border-radius: 4px;
-  background: var(--menu-ink);
-  color: var(--menu-paper);
+  background: var(--menu-paper);
+  color: var(--menu-ink);
   overscroll-behavior: contain;
   box-shadow: 0 32px 100px #00000060;
   scrollbar-width: thin;
-  scrollbar-color: #646f6a var(--menu-ink);
+  scrollbar-color: #97a492 var(--menu-paper);
 }
 .mega-menu::backdrop { background: #030807d9; backdrop-filter: blur(12px); }
 .mega-menu[open] { animation: menu-enter 220ms ease-out both; }
@@ -44,26 +49,26 @@
   justify-content: space-between;
   padding: 16px 0;
   border-bottom: 1px solid var(--menu-line);
-  background: var(--menu-ink);
+  background: var(--menu-paper);
 }
-.mega-menu-kicker { display: flex; align-items: center; gap: 12px; font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; }
-.mega-menu-symbol { display: flex; align-items: center; gap: 3px; height: 22px; }
-.mega-menu-symbol > i { display: block; width: 4px; height: 15px; background: #d7f36b; transform: skewY(-25deg); }
-.mega-menu-symbol > i:nth-child(2) { height: 22px; background: #d69c55; }
-.mega-menu-symbol > i:nth-child(3) { height: 18px; background: #bfb295; }
-.mega-menu-count { margin-left: 16px; color: var(--menu-muted); font-size: 9px; }
+.mega-menu-house { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 5px; padding: 6px 0; }
+.mega-menu-house > span { color: var(--menu-muted); font-size: 8px; letter-spacing: 2px; line-height: 1.5; text-transform: uppercase; }
+.mega-menu-house h2 { font: 400 clamp(34px, 4vw, 52px)/1.05 Georgia, "Times New Roman", serif; letter-spacing: -1.8px; }
+.mega-menu-house-nav { display: flex; align-items: center; gap: 36px; padding: 5px 0; border-bottom: 1px solid var(--menu-line); }
+.mega-menu-house-nav > a { display: inline-flex; align-items: center; gap: 22px; min-height: 44px; font-size: 12px; }
+.mega-menu-house-nav > a[aria-current="page"], .mega-menu-house-nav > a:hover { text-decoration: underline; text-underline-offset: 5px; }
+.mega-menu-house-nav > a > span { font-size: 18px; }
 .mega-menu-close { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; gap: 13px; padding: 0 0 0 12px; font-size: 11px; }
-.mega-menu-close svg { width: 38px; height: 38px; padding: 10px; border: 1px solid #ffffff50; border-radius: 50%; stroke: currentColor; stroke-width: 1.3; transition: background-color 180ms ease, transform 180ms ease; }
-.mega-menu-close:hover svg { background: #ffffff15; transform: rotate(90deg); }
-.mega-menu-intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; padding: 27px 0 28px; }
-.mega-menu-intro h2 { font: 400 clamp(36px, 4vw, 56px)/1.02 Georgia, "Times New Roman", serif; letter-spacing: -2px; }
-.mega-menu-intro h2 em { color: #b8c0b4; font-weight: 400; }
+.mega-menu-close svg { width: 38px; height: 38px; padding: 10px; border: 1px solid #9ca999; border-radius: 50%; stroke: currentColor; stroke-width: 1.3; transition: background-color 180ms ease, transform 180ms ease; }
+.mega-menu-close:hover svg { background: #223b2e12; transform: rotate(90deg); }
+.mega-menu-intro { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; }
+.mega-menu-intro h3 { font: italic 400 26px/1.1 Georgia, "Times New Roman", serif; letter-spacing: -0.5px; }
 .mega-menu-intro > p { color: var(--menu-muted); text-align: right; font-size: 11px; line-height: 1.6; }
 .mega-menu-brands { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; padding: 0; margin: 0; list-style: none; }
 .mega-menu-brands > li { min-width: 0; }
 .mega-menu-brand {
-  --brand-accent: #daf969;
-  --brand-background: #101c0e;
+  --brand-accent: #e0ebc4;
+  --brand-background: #132017;
   --brand-border: #536841;
   position: relative;
   display: flex;
@@ -76,22 +81,22 @@
   color: var(--brand-accent);
   transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
 }
-.mega-menu-brand::before { content: ""; position: absolute; inset: 0 0 auto; z-index: 2; height: 3px; background: var(--brand-accent); }
+.mega-menu-brand::before { content: ""; position: absolute; inset: 0 0 auto; z-index: 2; height: 1px; background: var(--brand-accent); }
 .mega-menu-brand-bensons { --brand-accent: #e5b879; --brand-background: #23170e; --brand-border: #6b4c30; }
 .mega-menu-brand-nightbird { --brand-accent: #dfc795; --brand-background: #091929; --brand-border: #3b5260; }
 .mega-menu-card-meta { position: relative; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 5px 10px; min-height: 47px; padding: 15px 21px 9px; font-size: 8px; font-weight: 500; line-height: 1.5; letter-spacing: 1.2px; text-transform: uppercase; }
 .mega-menu-current { color: #f8f4eb; font-size: 8px; letter-spacing: 0.3px; text-transform: none; }
 .mega-menu-current::before { content: ""; display: inline-block; width: 4px; height: 4px; margin: 0 5px 2px 0; border-radius: 50%; background: currentColor; }
-.mega-menu-brand-heading { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; min-height: 106px; padding: 0 20px 18px; }
-.mega-menu-brand-name { display: block; font: 400 clamp(36px, 4vw, 57px)/1 Georgia, "Times New Roman", serif; letter-spacing: -1.7px; }
-.mega-menu-brand-mountain .mega-menu-brand-name { font: 400 clamp(43px, 5vw, 72px)/0.93 "Bebas Neue", Arial, sans-serif; letter-spacing: 0.3px; text-transform: uppercase; }
+.mega-menu-brand-heading { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; min-height: 93px; padding: 0 20px 18px; }
+.mega-menu-brand-name { display: block; font: 400 clamp(33px, 3.6vw, 49px)/1 Georgia, "Times New Roman", serif; letter-spacing: -1.7px; }
+.mega-menu-brand-mountain .mega-menu-brand-name { font: 400 clamp(40px, 4.1vw, 57px)/0.93 "Bebas Neue", Arial, sans-serif; letter-spacing: 0.3px; text-transform: uppercase; }
 .mega-menu-brand-mountain .mega-menu-brand-line { color: #fb96c4; font: 400 17px/1.1 "Kaushan Script", Georgia, serif; }
-.mega-menu-brand-bensons .mega-menu-brand-name { color: #fae5bd; font-weight: 700; font-size: clamp(34px, 3.7vw, 53px); letter-spacing: -2px; }
+.mega-menu-brand-bensons .mega-menu-brand-name { color: #fae5bd; font-weight: 700; font-size: clamp(32px, 3.4vw, 46px); letter-spacing: -2px; }
 .mega-menu-brand-bensons .mega-menu-brand-line { font-size: 8px; letter-spacing: 1.1px; text-transform: uppercase; }
 .mega-menu-brand-nightbird .mega-menu-brand-name { font-style: italic; }
 .mega-menu-brand-nightbird .mega-menu-brand-line { font: italic 400 14px/1.2 Georgia, "Times New Roman", serif; }
 .mega-menu-brand-line { display: block; font-size: 10px; }
-.mega-menu-brand-image { position: relative; display: block; width: 100%; height: clamp(225px, 28vh, 320px); overflow: hidden; background: var(--brand-background); }
+.mega-menu-brand-image { position: relative; display: block; width: 100%; height: clamp(200px, 25vh, 280px); overflow: hidden; background: var(--brand-background); }
 .mega-menu-brand-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, var(--brand-background), transparent 25%, transparent 83%, var(--brand-background)); }
 .mega-menu-brand-image img { width: 100%; height: 100%; max-width: none; object-fit: cover; opacity: 0; transition: opacity 350ms ease, transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1); }
 .mega-menu-brand-image img.is-loaded { opacity: 1; }
@@ -107,14 +112,14 @@
 .mega-menu-brand:hover .mega-menu-brand-image img, .mega-menu-brand:focus-visible .mega-menu-brand-image img { transform: scale(1.045); }
 .mega-menu-brand:hover .mega-menu-brand-arrow, .mega-menu-brand:focus-visible .mega-menu-brand-arrow { background: var(--brand-accent); color: var(--brand-background); border-color: var(--brand-accent); }
 .mega-menu-bottom { display: flex; align-items: center; justify-content: space-between; gap: 25px; padding: 20px 0 16px; }
-.mega-menu-collection { display: inline-flex; flex-shrink: 0; align-items: center; justify-content: space-between; gap: 27px; min-height: 46px; padding: 0 17px; border: 1px solid #8b958c; color: var(--menu-paper); font-size: 11px; font-weight: 500; transition: background-color 180ms ease, color 180ms ease; }
+.mega-menu-collection { display: inline-flex; flex-shrink: 0; align-items: center; justify-content: space-between; gap: 27px; min-height: 46px; padding: 0 17px; border: 1px solid #8b958c; color: var(--menu-ink); font-size: 11px; font-weight: 500; transition: background-color 180ms ease, color 180ms ease; }
 .mega-menu-collection > span:last-child { font: 400 22px/1 Arial, sans-serif; }
-.mega-menu-collection:hover { background: var(--menu-paper); color: var(--menu-ink); }
+.mega-menu-collection:hover { background: var(--menu-ink); color: var(--menu-paper); }
 .mega-menu-local:not([hidden]) { display: flex; flex-wrap: wrap; align-items: center; column-gap: 18px; row-gap: 0; }
 .mega-menu-local > span { color: var(--menu-muted); font-size: 8px; text-transform: uppercase; letter-spacing: 0.7px; }
 .mega-menu-local > a { display: inline-flex; align-items: center; min-height: 44px; font-size: 10px; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #89958c; }
-.mega-menu-responsible { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding-top: 12px; border-top: 1px solid var(--menu-line); color: #a1aaa3; font-size: 8px; line-height: 1.6; }
-.mega-menu :focus-visible { outline: 2px solid #f7f3e9; outline-offset: 4px; }
+.mega-menu-responsible { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding-top: 12px; border-top: 1px solid var(--menu-line); color: var(--menu-muted); font-size: 8px; line-height: 1.6; }
+.mega-menu :focus-visible { outline: 2px solid var(--menu-ink); outline-offset: 4px; }
 @keyframes menu-enter { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 1100px) {
   .desktop-nav .mega-menu-trigger { padding-left: 20px; margin-left: 0; gap: 15px; }
@@ -131,28 +136,33 @@
   .mega-menu-local { max-width: 380px; }
 }
 @media (min-width: 761px) and (max-height: 820px) {
+  .mega-menu-inner { padding-bottom: 16px; }
   .mega-menu-top { padding-top: 10px; padding-bottom: 10px; }
-  .mega-menu-intro { padding-top: 18px; padding-bottom: 18px; }
-  .mega-menu-intro h2 { font-size: 44px; }
-  .mega-menu-brand-heading { min-height: 90px; padding-bottom: 12px; }
-  .mega-menu-brand-image { height: 210px; }
+  .mega-menu-house h2 { font-size: 44px; }
+  .mega-menu-intro { padding-top: 14px; padding-bottom: 14px; }
+  .mega-menu-brand-heading { min-height: 82px; padding-bottom: 12px; }
+  .mega-menu-card-meta { min-height: 40px; padding-top: 10px; padding-bottom: 6px; }
+  .mega-menu-brand-image { height: 190px; }
+  .mega-menu-card-bottom { padding-top: 13px; padding-bottom: 16px; }
   .mega-menu-bottom { padding-top: 16px; padding-bottom: 12px; }
 }
 @media (max-width: 760px) {
   .mega-menu { inset: 0; width: 100%; max-width: none; height: 100dvh; max-height: 100dvh; margin: 0; border: 0; border-radius: 0; }
   .mega-menu-inner { min-height: 100%; padding: 0 20px max(18px, env(safe-area-inset-bottom)); }
   .mega-menu-top { margin: 0 -20px; padding: max(12px, env(safe-area-inset-top)) 20px 12px; }
-  .mega-menu-kicker { gap: 10px; font-size: 9px; }
-  .mega-menu-count { margin-left: 7px; font-size: 8px; }
+  .mega-menu-house { gap: 4px; }
+  .mega-menu-house > span { font-size: 7px; letter-spacing: 1.5px; }
+  .mega-menu-house h2 { font-size: 29px; letter-spacing: -1px; }
+  .mega-menu-house-nav { justify-content: space-between; gap: 22px; }
+  .mega-menu-house-nav > a { gap: 10px; font-size: 11px; }
   .mega-menu-close { gap: 8px; font-size: 10px; }
   .mega-menu-close svg { width: 34px; height: 34px; padding: 9px; }
-  .mega-menu-intro { display: block; padding: 23px 0 21px; }
-  .mega-menu-intro h2 { font-size: clamp(30px, 8.4vw, 50px); letter-spacing: -1.5px; }
-  .mega-menu-intro > p { padding-top: 10px; text-align: left; font-size: 11px; }
-  .mega-menu-intro > p > br { display: none; }
+  .mega-menu-intro { display: block; padding: 18px 0; }
+  .mega-menu-intro h3 { font-size: 23px; }
+  .mega-menu-intro > p { padding-top: 6px; text-align: left; font-size: 10px; }
   .mega-menu-brands { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .mega-menu-brand { min-height: 174px; padding: 18px; }
-  .mega-menu-brand::before { inset: 0 auto 0 0; width: 3px; height: auto; }
+  .mega-menu-brand::before { inset: 0 auto 0 0; width: 1px; height: auto; }
   .mega-menu-card-meta { position: static; display: block; min-height: auto; padding: 0; font-size: 8px; line-height: 1.5; }
   .mega-menu-card-meta > span:first-child { position: relative; z-index: 1; }
   .mega-menu-current { position: absolute; z-index: 3; top: 10px; right: 10px; padding: 2px 5px; background: #08120de6; font-size: 7px; }
@@ -178,7 +188,8 @@
 @media (max-width: 360px) {
   .mega-menu-inner { padding-left: 16px; padding-right: 16px; }
   .mega-menu-top { margin-left: -16px; margin-right: -16px; padding-left: 16px; padding-right: 16px; }
-  .mega-menu-count { display: none; }
+  .mega-menu-house h2 { font-size: 26px; }
+  .mega-menu-close > span { display: none; }
   .mega-menu-brand { min-height: 168px; padding: 16px; }
   .mega-menu-brand-heading { width: 63%; }
   .mega-menu-brand-name { font-size: 33px; }

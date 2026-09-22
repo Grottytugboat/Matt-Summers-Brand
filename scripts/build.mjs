@@ -8,9 +8,12 @@ await mkdir(output, { recursive: true });
 for (const entry of [
   "index.html",
   "styles.css",
+  "house.css",
+  "house.js",
   "app.js",
   "fonts.css",
   "fonts",
+  "mountain",
   "bensons",
   "collection",
   "nightbird",
