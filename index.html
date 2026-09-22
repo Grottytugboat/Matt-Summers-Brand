@@ -1,333 +1,126 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-AU">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MOUNTAIN — Fruit Tingle · Vodka Soda with Wild Fruit</title>
-<meta name="description" content="Fruit Tingle by Mountain. A 7% vodka soda with natural wild raspberry, blood orange, lime and blackberry. Series 01. Serve ice cold.">
-<meta name="theme-color" content="#ffffff">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101014'/%3E%3Cpath d='M21 43V22l11 13 11-13v21' fill='none' stroke='%23fff' stroke-width='4'/%3E%3Cpath d='M18 33h28' stroke='%23ff2e9a' stroke-width='3'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="fonts.css">
-<link rel="stylesheet" href="styles.css?v=6">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Savage Spirits — A House of Distinctive Spirits</title>
+  <meta name="description" content="Welcome to Savage Spirits. Discover the distinct worlds of Nightbird Vodka, Benson’s Original and Mountain Fruit Tingle." />
+  <meta name="theme-color" content="#18352d" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta property="og:title" content="Savage Spirits — Individual Spirits. One Collective." />
+  <meta property="og:description" content="A house of distinctive spirits. Explore Nightbird, Benson’s and Mountain." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://matt-summers-brand.vercel.app/" />
+  <meta property="og:image" content="https://matt-summers-brand.vercel.app/assets/collective-social.jpg" />
+  <meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="/assets/house-mark.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/fonts.css" /><link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/house.css" /><link rel="stylesheet" href="/mega-menu.css" /><link rel="stylesheet" href="/age-gate.css" />
+  <script src="/app.js" defer></script><script src="/mega-menu.js" defer></script><script src="/house.js" defer></script>
 </head>
-<body>
-
-<!-- loader -->
-<div class="loader" id="loader" aria-hidden="true">
-  <div class="loader-inner">
-    <svg class="loader-mark" viewBox="0 0 120 120">
-      <circle class="lm-ring" cx="60" cy="60" r="54" fill="none" stroke="#101014" stroke-width="2.5"/>
-      <path class="lm-m" d="M38 82V38l22 26 22-26v44" fill="none" stroke="#101014" stroke-width="6.5"/>
-      <path class="lm-bar" d="M20 60h80" fill="none" stroke="#ff2e9a" stroke-width="3.5"/>
-    </svg>
-    <div class="loader-word">MOUNTAIN</div>
-    <div class="loader-sub">フルーツティングル · SERIES 01</div>
-    <div class="loader-progress"><i id="loader-bar"></i></div>
-    <div class="loader-pct" id="loader-pct">0</div>
-  </div>
-</div>
-
-<!-- age gate -->
-<div class="age-gate" id="age-gate" role="dialog" aria-modal="true" aria-label="Age verification">
-  <div class="age-card">
-    <div class="age-hello">HELLO</div>
-    <div class="age-konnichiwa">こんにちは</div>
-    <p class="age-copy">Are you of legal drinking age in your country?</p>
-    <div class="age-actions" id="age-actions">
-      <button class="btn btn-ink" id="gate-yes" type="button">YES!</button>
-      <button class="btn btn-ghost" id="gate-no" type="button">NOT YET</button>
-    </div>
-    <p class="age-denied" id="age-denied" hidden>No worries — the mountain will wait.<br>Come back when you're of age.</p>
-    <p class="age-note">Drink responsibly. Legal purchasing age only.</p>
-  </div>
-</div>
-
-<!-- nav -->
-<header class="nav" id="nav">
-  <a class="brand" href="#top" aria-label="Mountain home">
-    <svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true">
-      <circle cx="32" cy="32" r="29" fill="none" stroke="#101014" stroke-width="3"/>
-      <path d="M20 44V20l12 14 12-14v24" fill="none" stroke="#101014" stroke-width="4.5"/>
-      <path d="M13 33h38" stroke="#ff2e9a" stroke-width="2.5"/>
-    </svg>
-    <span class="brand-word">MOUNTAIN</span>
-  </a>
-  <nav class="nav-links" id="nav-links">
-    <a href="#flavours">FLAVOURS</a>
-    <a href="#shop">SHOP</a>
-    <a href="#join">HELLO YES!</a>
-  </nav>
-  <div class="nav-actions">
-    <button class="icon-btn" id="cart-btn" type="button" aria-label="Open cart">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M6 8h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 8z"/>
-        <path d="M9 10V6a3 3 0 0 1 6 0v4"/>
-      </svg>
-      <span class="badge" id="cart-count" hidden>0</span>
-    </button>
-    <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-  </div>
-</header>
-
-<main id="top">
-
-  <!-- hero -->
-  <section class="hero" id="hero">
-    <div class="hero-fruits" id="hero-fruits" aria-hidden="true"></div>
-
-    <div class="hero-top">
-      <p class="hero-eyebrow">FROM THE MOUNTAIN'S FAVOURITE PREMIX VODKA SODA <span class="jp">ウォッカソーダ</span></p>
-      <h1 class="hero-title">
-        <span class="line line-fruit">Fruit</span>
-        <span class="line line-tingle">Tingle</span>
-      </h1>
-    </div>
-
-    <div class="hero-can-wrap" id="hero-can-wrap" aria-hidden="true">
-      <img id="hero-can" data-can="original" alt="">
-      <div class="hero-can-shadow"></div>
-    </div>
-
-    <div class="hero-bottom">
-      <a class="btn btn-blue" href="#flavours">EXPLORE</a>
-      <div class="hero-stats">
-        <span><b>7%</b> ALC/VOL</span><i>✦</i>
-        <span><b>4</b> REAL FRUITS</span><i>✦</i>
-        <span><b>355</b> ML SLIM</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- marquee -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <div class="marquee-group">
-        <span>ASK FOR A FRUIT TINGLE</span><b>✦</b><span class="jp">フルーツティングル</span><b>✦</b><span class="outline">SERVE ICE COLD</span><b>✦</b><span>7% ALC/VOL</span><b>✦</b>
-      </div>
-      <div class="marquee-group">
-        <span>ASK FOR A FRUIT TINGLE</span><b>✦</b><span class="jp">フルーツティングル</span><b>✦</b><span class="outline">SERVE ICE COLD</span><b>✦</b><span>7% ALC/VOL</span><b>✦</b>
-      </div>
-    </div>
-  </div>
-
-  <!-- flavours -->
-  <section class="section" id="flavours">
-    <div class="container">
-      <p class="eyebrow">フレーバー · FLAVOURS</p>
-      <h2 class="sec-title">DISCOVER THE<br>FRUIT TINGLE FLAVOURS&hellip;</h2>
-      <p class="hello-yes">Hello YES!</p>
-    </div>
-
-    <div class="flav-panel" style="--flav:#ff2d55;--flav-deep:#c90048">
-      <div class="container fp-grid">
-        <div class="fp-copy">
-          <h3 class="fp-name">WILD<br>RASPBERRY</h3>
-          <p class="fp-en">VODKA SODA WITH NATURAL RASPBERRY</p>
-          <p class="fp-jp">天然のラズベリー</p>
-          <p class="fp-desc">Dark, jammy, a little feral. The berry that started the riot.</p>
-          <a class="btn btn-paper" href="#shop">EXPLORE</a>
+<body class="age-pending" data-brand="house">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="site-shell" id="site-shell" inert>
+    <header class="site-header house-header">
+      <a class="wordmark house-wordmark" href="/" aria-label="Savage Spirits home"><span class="house-monogram" aria-hidden="true">S</span><span>SAVAGE<small>SPIRITS</small></span></a>
+      <nav class="desktop-nav" aria-label="Main navigation"><a href="#about">Our world</a><a href="#brands">Our collection</a><a href="/collection/">Explore our brands <span aria-hidden="true">↗</span></a></nav>
+      <button class="menu-toggle" type="button" aria-controls="mobile-nav" aria-expanded="false"><span>Explore</span><i aria-hidden="true"></i></button>
+    </header>
+    <main id="main">
+      <section class="house-hero" aria-labelledby="house-title">
+        <div class="house-hero-top"><p class="eyebrow">A HOUSE OF DISTINCTIVE SPIRITS</p><span>INDIVIDUAL BY NATURE.</span></div>
+        <div class="house-title-row"><h1 id="house-title">Savage <em>Spirits.</em></h1><div class="house-title-note"><span class="house-orbit" aria-hidden="true">S</span><p>ONE COLLECTIVE.<br />EXCEPTIONAL CHARACTER.</p></div></div>
+        <div class="house-introduction"><p>Different spirits.<br /><em>One unmistakable point of view.</em></p><a class="house-link" href="#brands">Discover the collection <span aria-hidden="true">↘</span></a></div>
+        <figure class="house-hero-image"><img src="/assets/collective-still-life.webp" alt="Nightbird Vodka, Benson’s Original and Mountain Fruit Tingle presented together on sculptural stone plinths" width="1672" height="941" fetchpriority="high" /><figcaption><span>THE SAVAGE SPIRITS COLLECTION</span><span>THREE BRANDS. ENTIRELY THEIR OWN.</span></figcaption></figure>
+        <nav class="house-brand-signatures" aria-label="The Savage Spirits brands"><a class="signature-nightbird" href="/nightbird/">Nightbird<span>VODKA</span></a><a class="signature-bensons" href="/bensons/">Benson’s<span>ORIGINAL</span></a><a class="signature-mountain" href="/mountain/">MOUNTAIN<span>SPIRIT. ELEVATED.</span></a></nav>
+      </section>
+      <section class="house-about" id="about" aria-labelledby="house-about-title">
+        <div class="house-section-label"><span>01 / OUR WORLD</span><span>THE SAVAGE SPIRITS POINT OF VIEW</span></div>
+        <div class="house-about-grid"><h2 id="house-about-title" class="reveal">Individual spirits.<br /><em>A shared instinct.</em></h2><div class="house-about-copy reveal"><p>We believe a drinks brand should have a world of its own. A character you recognise. A point of view you remember.</p><p>Savage Spirits brings those worlds together. The quiet elegance of Nightbird. The familiar confidence of Benson’s. The vivid energy of Mountain. Each with its own identity. Each with a place in the collection.</p><a class="house-link" href="#brands">Get to know our brands <span aria-hidden="true">↓</span></a></div></div>
+      </section>
+      <section class="house-portfolio" id="brands" aria-labelledby="house-brands-title">
+        <div class="house-section-label"><span>02 / THE COLLECTION</span><span>THREE DISTINCT POINTS OF VIEW</span></div>
+        <div class="house-portfolio-heading"><h2 id="house-brands-title">Find your<br /><em>kind of spirit.</em></h2><p>A collection united by character.<br />Discover what makes each one different.</p></div>
+        <div class="house-filter-row"><div class="house-filters" role="group" aria-label="Filter the collection"><button type="button" data-filter="all" aria-pressed="true">All brands <span>03</span></button><button type="button" data-filter="spirit" aria-pressed="false">Spirits <span>01</span></button><button type="button" data-filter="premix" aria-pressed="false">Ready to serve <span>02</span></button></div><p class="house-filter-count" aria-live="polite" aria-atomic="true">Showing all 3 brands</p></div>
+        <div class="house-products">
+          <article class="house-product house-product-nightbird" data-category="spirit"><a href="/nightbird/" class="house-product-image" aria-label="Discover Nightbird Vodka"><img src="/assets/nightbird-campaign.webp" alt="Nightbird’s clear glass bottle with its signature gold bird and Art Deco design" width="1672" height="941" loading="lazy" /><span class="house-product-number">01 / VODKA</span><span class="house-product-enter" aria-hidden="true">↗</span></a><div class="house-product-heading"><h3><a href="/nightbird/">Nightbird.</a></h3><span>40% ALC/VOL<br />700 mL</span></div><p class="house-product-line">A spirit less ordinary.</p><p class="house-product-description">Clear glass, gold geometry and a signature in flight. A distinctive expression of vodka.</p><a class="house-product-link" href="/nightbird/">Explore Nightbird <span aria-hidden="true">↗</span></a></article>
+          <article class="house-product house-product-bensons" data-category="premix"><a href="/bensons/" class="house-product-image" aria-label="Discover Benson’s Original Bourbon with Cola"><img src="/assets/bensons-campaign.webp" alt="Benson’s Original Double Black can with a glass of cola and ice" width="1672" height="941" loading="lazy" /><span class="house-product-number">02 / BOURBON &amp; COLA</span><span class="house-product-enter" aria-hidden="true">↗</span></a><div class="house-product-heading"><h3><a href="/bensons/">Benson’s.</a></h3><span>6.5% ALC/VOL<br />375 mL</span></div><p class="house-product-line">Real bourbon. No compromise.</p><p class="house-product-description">The classic pairing, with a character of its own. Meet Benson’s Original Double Black.</p><a class="house-product-link" href="/bensons/">Explore Benson’s <span aria-hidden="true">↗</span></a></article>
+          <article class="house-product house-product-mountain" data-category="premix"><a href="/mountain/" class="house-product-image" aria-label="Discover Mountain Fruit Tingle"><img src="/assets/mountain-campaign.webp" alt="Mountain Fruit Tingle’s black can, electric lettering and colourful fruit artwork" width="1672" height="941" loading="lazy" /><span class="house-product-number">03 / VODKA PREMIX</span><span class="house-product-enter" aria-hidden="true">↗</span></a><div class="house-product-heading"><h3><a href="/mountain/">Mountain.</a></h3><span>7% ALC/VOL<br />FRUIT TINGLE</span></div><p class="house-product-line">Spirit. Elevated.</p><p class="house-product-description">Sharp lines and wild colour. Fruit Tingle brings Mountain’s vivid point of view to a vodka premix.</p><a class="house-product-link" href="/mountain/">Explore Mountain <span aria-hidden="true">↗</span></a></article>
         </div>
-        <div class="fp-can"><img data-can="raspberry" data-parallax="0.10" alt="Wild Raspberry Fruit Tingle can"></div>
-      </div>
-    </div>
-
-    <div class="flav-panel fp-flip" style="--flav:#ff7a1a;--flav-deep:#d85e00">
-      <div class="container fp-grid">
-        <div class="fp-copy">
-          <h3 class="fp-name">BLOOD<br>ORANGE</h3>
-          <p class="fp-en">VODKA SODA WITH NATURAL BLOOD ORANGE</p>
-          <p class="fp-jp">天然のブラッドオレンジ</p>
-          <p class="fp-desc">Sharp citrus with a sunset sting. Loud in the best way.</p>
-          <a class="btn btn-paper" href="#shop">EXPLORE</a>
-        </div>
-        <div class="fp-can"><img data-can="orange" data-parallax="0.10" alt="Blood Orange Fruit Tingle can"></div>
-      </div>
-    </div>
-
-    <div class="flav-panel" style="--flav:#8fce1e;--flav-deep:#6da300">
-      <div class="container fp-grid">
-        <div class="fp-copy">
-          <h3 class="fp-name">ZESTY<br>LIME</h3>
-          <p class="fp-en">VODKA SODA WITH NATURAL LIME</p>
-          <p class="fp-jp">天然のライム</p>
-          <p class="fp-desc">The voltage. Pure electric rind, straight off the zest.</p>
-          <a class="btn btn-paper" href="#shop">EXPLORE</a>
-        </div>
-        <div class="fp-can"><img data-can="lime" data-parallax="0.10" alt="Zesty Lime Fruit Tingle can"></div>
-      </div>
-    </div>
-
-    <div class="flav-panel fp-flip" style="--flav:#8a5cff;--flav-deep:#6534e0">
-      <div class="container fp-grid">
-        <div class="fp-copy">
-          <h3 class="fp-name">BLACK<br>BERRY</h3>
-          <p class="fp-en">VODKA SODA WITH NATURAL BLACKBERRY</p>
-          <p class="fp-jp">天然のブラックベリー</p>
-          <p class="fp-desc">Moody depth. Purple thunder in a slim can.</p>
-          <a class="btn btn-paper" href="#shop">EXPLORE</a>
-        </div>
-        <div class="fp-can"><img data-can="blackberry" data-parallax="0.10" alt="Blackberry Fruit Tingle can"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- sticky premix moment -->
-  <section class="premix" id="premix">
-    <div class="premix-sticky">
-      <h2 class="premix-line l1"><span>FROM THE MOUNTAIN'S</span></h2>
-      <div class="premix-can"><img data-can="original" alt="Fruit Tingle can"></div>
-      <h2 class="premix-line l2"><span>FAVOURITE PREMIX<i class="ast">*</i></span></h2>
-      <p class="premix-note">*7% ALC/VOL · SERIES 01 · SERVE AT −2°C</p>
-    </div>
-  </section>
-
-  <!-- tilted band -->
-  <div class="tilt-band-wrap" aria-hidden="true">
-    <div class="marquee tilt-band">
-      <div class="marquee-track">
-        <div class="marquee-group">
-          <span>SERVE ICE COLD</span><b>✦</b><span class="jp">氷のように冷やして</span><b>✦</b><span>−2°C</span><b>✦</b><span>SERVE ICE COLD</span><b>✦</b><span class="jp">氷のように冷やして</span><b>✦</b><span>−2°C</span><b>✦</b>
-        </div>
-        <div class="marquee-group">
-          <span>SERVE ICE COLD</span><b>✦</b><span class="jp">氷のように冷やして</span><b>✦</b><span>−2°C</span><b>✦</b><span>SERVE ICE COLD</span><b>✦</b><span class="jp">氷のように冷やして</span><b>✦</b><span>−2°C</span><b>✦</b>
-        </div>
-      </div>
-    </div>
+        <a class="house-all-brands" href="/collection/">Explore the complete collection <span aria-hidden="true">↗</span></a>
+      </section>
+      <section class="house-belief" aria-labelledby="house-belief-title"><div class="house-belief-mark" aria-hidden="true">S</div><p class="eyebrow">THE SPIRIT OF SAVAGE</p><h2 id="house-belief-title">Good spirits have<br /><em>a world of their own.</em></h2><p>We give each one room to be itself.</p><a class="house-link" href="#brands">Discover your next favourite <span aria-hidden="true">↗</span></a></section>
+    </main>
+    <footer class="house-footer"><div class="house-footer-top"><a href="/" class="house-footer-wordmark">Savage <em>Spirits.</em></a><a class="house-back-top" href="#main">Back to top <span aria-hidden="true">↑</span></a></div><div class="house-footer-bottom"><p>A house of distinctive spirits.<br /><span>For adults 18+. Please enjoy responsibly.</span></p><nav aria-label="Footer navigation"><a href="/nightbird/">Nightbird</a><a href="/bensons/">Benson’s</a><a href="/mountain/">Mountain</a><a href="/studio/">Brand studio</a><button type="button" data-privacy>Privacy</button></nav><p class="house-copyright">© <span data-year>2026</span> Savage Spirits</p></div></footer>
   </div>
-
-  <!-- shop -->
-  <section class="section" id="shop">
-    <div class="container">
-      <p class="eyebrow">シリーズ01 · SERIES 01</p>
-      <h2 class="sec-title">GET THE DROP</h2>
-      <p class="sec-sub">Limited first press. When it's gone, it's gone.</p>
-      <div class="p-grid">
-        <article class="p-card">
-          <div class="p-img"><img data-can="original" alt="Fruit Tingle 4-pack can"></div>
-          <div class="p-info">
-            <h3 class="p-name">FRUIT TINGLE — 4-PACK</h3>
-            <p class="p-meta">4 × 355ML SLIM CANS</p>
-            <div class="p-row">
-              <span class="p-price">$18</span>
-              <button class="btn btn-ink btn-sm" type="button" data-add data-id="4pack" data-name="Fruit Tingle 4-Pack" data-price="18">ADD</button>
-            </div>
-          </div>
-        </article>
-        <article class="p-card">
-          <div class="p-badge" style="--b:#ff2e9a">MOST WANTED</div>
-          <div class="p-img"><img data-can="original" alt="Fruit Tingle 12-pack can"></div>
-          <div class="p-info">
-            <h3 class="p-name">FRUIT TINGLE — 12-PACK</h3>
-            <p class="p-meta">12 × 355ML SLIM CANS</p>
-            <div class="p-row">
-              <span class="p-price">$48</span>
-              <button class="btn btn-ink btn-sm" type="button" data-add data-id="12pack" data-name="Fruit Tingle 12-Pack" data-price="48">ADD</button>
-            </div>
-          </div>
-        </article>
-        <article class="p-card">
-          <div class="p-badge" style="--b:#101014">LOW STOCK</div>
-          <div class="p-img"><img data-can="original" alt="Fruit Tingle full case can"></div>
-          <div class="p-info">
-            <h3 class="p-name">THE FULL CASE</h3>
-            <p class="p-meta">24 × 355ML SLIM CANS</p>
-            <div class="p-row">
-              <span class="p-price">$89</span>
-              <button class="btn btn-ink btn-sm" type="button" data-add data-id="case" data-name="The Full Case" data-price="89">ADD</button>
-            </div>
-          </div>
-        </article>
-        <article class="p-card">
-          <div class="p-badge" style="--b:#8a5cff">MERCH</div>
-          <div class="p-img"><img data-poster alt="Series 01 poster"></div>
-          <div class="p-info">
-            <h3 class="p-name">SERIES 01 POSTER</h3>
-            <p class="p-meta">A2 SCREEN PRINT · NUMBERED</p>
-            <div class="p-row">
-              <span class="p-price">$35</span>
-              <button class="btn btn-ink btn-sm" type="button" data-add data-id="poster" data-name="Series 01 Poster" data-price="35">ADD</button>
-            </div>
-          </div>
-        </article>
+    <dialog
+      class="age-gate"
+      id="age-gate"
+      aria-labelledby="age-title"
+      aria-describedby="age-description"
+    >
+      <div class="age-card">
+        <span class="age-wordmark">THE COLLECTION</span>
+        <p class="eyebrow">DISTINCTIVE SPIRITS AWAIT</p>
+        <h2 id="age-title">
+          GOOD SPIRITS.<br />GROWN-UP<br /><em>COMPANY.</em>
+        </h2>
+        <p id="age-description">
+          Are you 18 or over and of legal drinking age in your location?
+        </p>
+        <div class="age-actions">
+          <button class="button button-lime" id="gate-yes" type="button">
+            Yes, let me in <span aria-hidden="true">↗</span></button
+          ><button class="age-no" id="gate-no" type="button">
+            No, not yet
+          </button>
+        </div>
+        <p class="age-denied" id="age-denied" role="status" hidden>
+          This experience is for adults of legal drinking age. Please visit us
+          another time.
+        </p>
+        <p class="age-note">PLEASE ENJOY RESPONSIBLY.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- join -->
-  <section class="join" id="join">
-    <div class="container">
-      <div class="join-card">
-        <p class="join-jp">マウンテンの友達になる？</p>
-        <h2 class="join-title">BECOME A FRIEND<br>OF MOUNTAIN?</h2>
-        <p class="hello-yes hello-yes-lg">Hello YES!</p>
-        <p class="join-sub">First access to limited drops, secret flavours, and absolutely zero spam.</p>
-        <form class="join-form" id="join-form">
-          <input type="email" id="join-email" placeholder="you@midnight.com" required aria-label="Email address">
-          <button class="btn btn-ink" type="submit">SIGN ME UP</button>
-        </form>
-        <p class="join-note">By signing up you confirm you are of legal drinking age.</p>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- footer -->
-<footer class="footer">
-  <div class="container footer-grid">
-    <div class="footer-brand">
-      <a class="brand" href="#top" aria-label="Mountain home">
-        <svg viewBox="0 0 64 64" width="34" height="34" aria-hidden="true">
-          <circle cx="32" cy="32" r="29" fill="none" stroke="#101014" stroke-width="3"/>
-          <path d="M20 44V20l12 14 12-14v24" fill="none" stroke="#101014" stroke-width="4.5"/>
-          <path d="M13 33h38" stroke="#ff2e9a" stroke-width="2.5"/>
-        </svg>
-        <span class="brand-word">MOUNTAIN</span>
-      </a>
-      <p>Alpine vodka sodas with the volume at eleven. Filtered by the mountain, canned for the session.</p>
-    </div>
-    <div class="footer-col">
-      <h4>SHOP</h4>
-      <a href="#shop">4-Pack — $18</a>
-      <a href="#shop">12-Pack — $48</a>
-      <a href="#shop">Full Case — $89</a>
-      <a href="#shop">Merch</a>
-    </div>
-    <div class="footer-col">
-      <h4>EXPLORE</h4>
-      <a href="#flavours">Flavours</a>
-      <a href="#shop">Series 01</a>
-      <a href="#join">Tingle List</a>
-    </div>
-    <div class="footer-col">
-      <h4>FOLLOW</h4>
-      <a href="#top">Instagram</a>
-      <a href="#top">TikTok</a>
-      <a href="#top">X</a>
-    </div>
-  </div>
-  <div class="container footer-legal">
-    <p>© <span id="year">2026</span> Mountain Vodka Co. Concept store — no real orders (yet). 7% ALC/VOL. Please enjoy responsibly. Legal purchasing age only. Never tingle and drive.</p>
-  </div>
-</footer>
-
-<!-- cart drawer -->
-<div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
-<aside class="drawer" id="drawer" aria-label="Cart">
-  <div class="drawer-head">
-    <h3>YOUR STASH</h3>
-    <button class="icon-btn" id="drawer-close" type="button" aria-label="Close cart">✕</button>
-  </div>
-  <div class="drawer-items" id="drawer-items"></div>
-  <div class="drawer-foot">
-    <div class="drawer-total"><span>SUBTOTAL</span><b id="drawer-total">$0</b></div>
-    <button class="btn btn-ink drawer-checkout" id="checkout-btn" type="button">CHECKOUT — COMING SOON</button>
-    <p class="drawer-note">This is a design concept. No real orders — the tingle is free for now.</p>
-  </div>
-</aside>
-
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-<script src="app.js?v=6"></script>
-</body>
+    </dialog>
+    <dialog
+      class="privacy-dialog"
+      id="privacy-dialog"
+      aria-labelledby="privacy-title"
+    >
+      <button
+        class="dialog-close"
+        data-close-dialog
+        type="button"
+        aria-label="Close privacy information"
+      >
+        ×
+      </button>
+      <p class="eyebrow">YOUR PRIVACY</p>
+      <h2 id="privacy-title">A simple visit.</h2>
+      <p>
+        This showcase does not collect enquiry details, process orders or use
+        advertising analytics. Your age confirmation is stored in this browser
+        for the current session so you can move between brands.
+      </p>
+      <p>
+        The hosting provider may process standard request logs to deliver and
+        secure the site.
+      </p>
+    </dialog>
+    <noscript
+      ><style>
+        .site-shell {
+          display: none;
+        }
+        .age-gate {
+          display: none;
+        }
+      </style>
+      <div class="noscript-note">
+        This website is for adults 18+. Please enable JavaScript to confirm your
+        age and view the brand showcase.
+      </div></noscript
+    >
+  </body>
 </html>

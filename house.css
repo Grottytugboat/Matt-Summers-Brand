@@ -1,0 +1,210 @@
+body[data-brand="house"] {
+  --ink: #18352d;
+  --paper: #f2f0e9;
+  --lime: #d4cbb6;
+  --muted: #657168;
+  --line: #d5d9cf;
+  --house-pad: clamp(24px, 5vw, 80px);
+  background: var(--paper);
+}
+.house-header {
+  height: 94px;
+  padding-inline: var(--house-pad);
+  background: #f2f0e9f5;
+  backdrop-filter: blur(15px);
+  border-color: #18352d25;
+}
+.house-wordmark { gap: 13px; }
+.house-wordmark > span:not(.house-monogram) {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+.house-wordmark small { font-size: 8px; letter-spacing: 5px; margin-top: 8px; }
+.house-wordmark .house-monogram {
+  width: 42px; height: 48px; border: 1px solid #18352d80;
+  display: grid; place-items: center;
+  font: italic 31px/1 Georgia, serif; letter-spacing: -4px; padding-right: 4px;
+  border-radius: 50%;
+}
+.house-header .desktop-nav { font-size: 11px; gap: 34px; }
+.house-hero { padding: 52px var(--house-pad) 0; }
+.house-hero-top { display: flex; justify-content: space-between; align-items: center; gap: 25px; }
+.house-hero-top .eyebrow { font-size: 9px; letter-spacing: 2px; font-weight: 500; }
+.house-hero-top > span { font-size: 8px; letter-spacing: 1.5px; color: var(--muted); }
+.house-title-row { display: flex; justify-content: space-between; align-items: center; gap: 35px; margin: 37px 0 28px; }
+.house-hero h1 {
+  font: 400 clamp(84px, 10vw, 160px)/1.02 Georgia, "Times New Roman", serif;
+  letter-spacing: -.065em;
+}
+.house-hero h1 em { font-weight: 400; font-style: italic; color: var(--ink); }
+.house-title-note { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; gap: 14px; padding: 12px 10px 0; }
+.house-orbit { display: grid; place-items: center; border: 1px solid #18352d50; outline: 1px solid #18352d20; outline-offset: 5px; border-radius: 50%; width: 58px; height: 58px; font: italic 42px/1 Georgia, serif; padding-right: 5px; }
+.house-title-note p { font-size: 6px; line-height: 1.8; letter-spacing: 1.3px; text-align: center; }
+.house-introduction { display: flex; justify-content: space-between; align-items: flex-end; gap: 35px; padding-bottom: 35px; }
+.house-introduction > p { font-size: 16px; line-height: 1.5; font-weight: 400; }
+.house-introduction em { font-style: normal; color: var(--muted); }
+.house-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 50px; font-size: 11px; min-height: 45px; border-bottom: 1px solid currentColor; padding: 10px 0; }
+.house-link > span { font-size: 25px; line-height: 1; transition: transform .25s; }
+.house-link:hover > span { transform: translate(3px, -3px); }
+.house-hero-image { margin: 0; position: relative; background: #24382a; overflow: hidden; }
+.house-hero-image img { width: 100%; height: auto; aspect-ratio: 1.95; object-fit: cover; object-position: center 12%; }
+.house-hero-image::after { content: ""; position: absolute; inset: 70% 0 0; background: linear-gradient(transparent, #10251f99); pointer-events: none; }
+.house-hero-image figcaption { position: absolute; bottom: 23px; left: 28px; right: 28px; display: flex; justify-content: space-between; color: #f2f0e9; z-index: 1; font-size: 7px; letter-spacing: 1.7px; }
+.house-brand-signatures { display: grid; grid-template-columns: repeat(3, 1fr); align-items: center; border-bottom: 1px solid var(--line); padding: 35px 0; }
+.house-brand-signatures a { display: block; text-align: center; border-right: 1px solid var(--line); padding: 4px 20px; font: 400 32px/1.1 Georgia, serif; letter-spacing: -1.5px; }
+.house-brand-signatures a:last-child { border-right: 0; }
+.house-brand-signatures a span { display: block; font: 400 6px/1 "Space Grotesk", sans-serif; letter-spacing: 3px; margin-top: 11px; }
+.house-brand-signatures .signature-nightbird { font-style: italic; }
+.house-brand-signatures .signature-mountain { font: 500 22px/1.1 "Space Grotesk", sans-serif; letter-spacing: 2px; }
+.house-brand-signatures a:hover { color: #7f744f; }
+.house-about { padding: 85px var(--house-pad) 95px; }
+.house-section-label { display: flex; justify-content: space-between; gap: 24px; font-size: 8px; letter-spacing: 1.7px; padding-bottom: 25px; border-bottom: 1px solid var(--line); }
+.house-section-label > span:last-child { opacity: .6; }
+.house-about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 10%; padding-top: 50px; align-items: start; }
+.house-about h2 { font: 400 clamp(40px,4.25vw,66px)/1.12 Georgia, serif; letter-spacing: -.05em; }
+.house-about h2 em { font-weight: 400; color: #667362; }
+.house-about-copy { max-width: 440px; }
+.house-about-copy > p:first-child { font-size: 19px; line-height: 1.6; letter-spacing: -.3px; }
+.house-about-copy > p:nth-child(2) { font-size: 13px; line-height: 1.85; color: var(--muted); margin-top: 22px; }
+.house-about-copy .house-link { margin-top: 22px; }
+.house-portfolio { background: #18352d; color: #eeeee5; padding: 75px var(--house-pad) 65px; --line: #ffffff30; }
+.house-portfolio-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 35px; padding: 42px 0 35px; }
+.house-portfolio h2 { font: 400 clamp(52px,6.1vw,96px)/1.04 Georgia, serif; letter-spacing: -.05em; }
+.house-portfolio h2 em { font-weight: 400; color: #c8ceb8; }
+.house-portfolio-heading > p { font-size: 12px; line-height: 1.8; color: #c0cbbf; padding-bottom: 7px; }
+.house-filter-row { display: flex; justify-content: space-between; gap: 30px; align-items: center; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 0 36px; }
+.house-filters { display: flex; gap: 28px; }
+.house-filters button { font-size: 10px; padding: 18px 0; color: #b9c5ba; position: relative; min-height: 53px; }
+.house-filters button span { margin-left: 8px; font-size: 7px; opacity: .55; }
+.house-filters button[aria-pressed="true"] { color: #f8f2db; }
+.house-filters button[aria-pressed="true"]::after { content: ""; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px; background: #d8d8bf; }
+.house-filter-count { font-size: 8px; letter-spacing: .5px; color: #b9c5ba; }
+.house-products { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px; }
+.house-product { min-width: 0; }
+.house-product-image { display: block; position: relative; overflow: hidden; background: #09121b; }
+.house-product-image img { width: 100%; height: 450px; object-fit: cover; object-position: 75% center; transition: transform .7s; }
+.house-product-bensons .house-product-image img { object-position: 69% center; }
+.house-product-mountain .house-product-image img { object-position: 80% center; }
+.house-product-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(#0003,transparent 35%,transparent 65%,#0005); pointer-events: none; }
+.house-product-image:hover img { transform: scale(1.035); }
+.house-product-number { position: absolute; left: 22px; top: 22px; font-size: 7px; letter-spacing: 1.1px; z-index: 1; }
+.house-product-enter { position: absolute; right: 22px; bottom: 22px; border: 1px solid #ffffff90; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; font-size: 25px; z-index: 1; }
+.house-product-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 25px; }
+.house-product-heading h3 { font: 400 clamp(30px,3vw,45px)/1.1 Georgia, serif; letter-spacing: -1.8px; }
+.house-product-heading > span { font-size: 6px; letter-spacing: 1px; line-height: 1.8; text-align: right; flex-shrink: 0; color: #bcc9b9; }
+.house-product-line { font-size: 11px; margin-top: 16px; color: #d6dbcc; }
+.house-product-description { font-size: 11px; line-height: 1.9; color: #a8bcad; margin-top: 12px; max-width: 330px; min-height: 62px; }
+.house-product-link { display: flex; justify-content: space-between; align-items: center; font-size: 10px; min-height: 48px; padding: 16px 0; border-top: 1px solid #ffffff30; margin-top: 23px; }
+.house-product-link > span { font-size: 22px; }
+.house-product-link:hover { color: #d6ccae; }
+.house-all-brands { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #ffffff40; padding-top: 25px; margin-top: 60px; min-height: 52px; font-size: 11px; }
+.house-all-brands > span { font-size: 25px; }
+.house-belief { padding: 90px var(--house-pad) 85px; text-align: center; background: #e3e5da; }
+.house-belief-mark { display: grid; place-items: center; width: 65px; height: 79px; border: 1px solid #18352d60; border-radius: 50%; font: italic 54px/1 Georgia, serif; margin: 0 auto 33px; padding-right: 6px; }
+.house-belief .eyebrow { font-size: 8px; letter-spacing: 2px; font-weight: 400; }
+.house-belief h2 { font: 400 clamp(43px,5.65vw,87px)/1.12 Georgia, serif; letter-spacing: -.045em; margin: 32px auto 25px; }
+.house-belief h2 em { font-weight: 400; color: #667362; }
+.house-belief > p:last-of-type { font-size: 13px; color: var(--muted); }
+.house-belief .house-link { margin-top: 23px; font-size: 10px; }
+.house-footer { background: #122a24; color: #e8eadd; padding: 55px var(--house-pad) 32px; }
+.house-footer-top { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 40px; border-bottom: 1px solid #ffffff25; gap: 30px; }
+.house-footer-wordmark { font: 400 clamp(50px,7.3vw,115px)/1 Georgia, serif; letter-spacing: -.065em; }
+.house-footer-wordmark em { font-weight: 400; }
+.house-back-top { display: flex; align-items: center; gap: 20px; min-height: 45px; font-size: 9px; }
+.house-back-top span { font-size: 22px; }
+.house-footer-bottom { display: grid; grid-template-columns: 1fr 1.2fr auto; gap: 28px; padding-top: 30px; font-size: 9px; line-height: 1.8; }
+.house-footer-bottom > p > span { color: #94a99a; font-size: 8px; }
+.house-footer-bottom nav { display: flex; gap: 23px; align-items: center; flex-wrap: wrap; }
+.house-footer-bottom nav a, .house-footer-bottom nav button { display: flex; align-items: center; min-height: 44px; font-size: 9px; padding: 0; }
+.house-copyright { color: #94a99a; align-self: center; font-size: 8px; }
+@media (max-width: 1100px) {
+  .house-title-note { display: none; }
+  .house-hero h1 { font-size: 12vw; }
+  .house-about-grid { gap: 7%; }
+  .house-product-image img { height: 360px; }
+  .house-products { gap: 20px; }
+  .house-product-heading { align-items: flex-start; }
+  .house-product-heading h3 { font-size: 31px; }
+  .house-product-heading > span { font-size: 5px; }
+  .house-footer-bottom { grid-template-columns: 1fr 1fr; }
+  .house-copyright { grid-column: 1 / -1; }
+}
+@media (max-width: 700px) {
+  .house-header { height: 76px; }
+  .house-wordmark > span:not(.house-monogram) { font-size: 16px; letter-spacing: 2.2px; }
+  .house-wordmark small { font-size: 6px; letter-spacing: 4px; margin-top: 7px; }
+  .house-wordmark .house-monogram { width: 32px; height: 39px; font-size: 27px; }
+  .house-header .menu-toggle { font-size: 10px; gap: 12px; }
+  .house-hero { padding: 34px 20px 0; }
+  .house-hero-top .eyebrow { font-size: 7px; letter-spacing: 1.5px; }
+  .house-hero-top > span { display: none; }
+  .house-title-row { margin: 25px 0 22px; }
+  .house-hero h1 { font-size: clamp(67px,19.6vw,125px); line-height: .97; letter-spacing: -.065em; }
+  .house-hero h1 em { display: block; padding-left: 10%; }
+  .house-introduction { display: block; padding-bottom: 28px; }
+  .house-introduction > p { font-size: 12px; line-height: 1.65; }
+  .house-introduction .house-link { margin-top: 17px; font-size: 9px; gap: 55px; min-height: 44px; }
+  .house-hero-image { margin-inline: -20px; }
+  .house-hero-image img { height: auto; aspect-ratio: 1.06; object-fit: cover; object-position: center; }
+  .house-hero-image figcaption { bottom: 15px; left: 20px; right: 20px; font-size: 6px; letter-spacing: .7px; }
+  .house-hero-image figcaption > span:last-child { display: none; }
+  .house-brand-signatures { padding: 28px 0; }
+  .house-brand-signatures a { font-size: 22px; letter-spacing: -.8px; padding-inline: 8px; }
+  .house-brand-signatures .signature-mountain { font-size: 13px; letter-spacing: 1px; }
+  .house-brand-signatures a span { font-size: 4px; letter-spacing: 1.8px; margin-top: 8px; }
+  .house-about { padding: 45px 24px 50px; }
+  .house-section-label { font-size: 6px; letter-spacing: 1px; padding-bottom: 20px; gap: 25px; }
+  .house-section-label > span:last-child { text-align: right; }
+  .house-about-grid { grid-template-columns: 1fr; padding-top: 30px; gap: 30px; }
+  .house-about h2 { font-size: clamp(37px,10.5vw,61px); line-height: 1.1; }
+  .house-about-copy > p:first-child { font-size: 18px; line-height: 1.6; }
+  .house-about-copy > p:nth-child(2) { font-size: 12px; margin-top: 20px; }
+  .house-about-copy .house-link { font-size: 10px; margin-top: 20px; }
+  .house-portfolio { padding: 43px 20px 38px; }
+  .house-portfolio-heading { display: block; padding: 30px 0; }
+  .house-portfolio h2 { font-size: clamp(49px,13.5vw,79px); }
+  .house-portfolio-heading > p { font-size: 11px; margin-top: 25px; padding: 0; }
+  .house-filter-row { display: block; margin-bottom: 27px; border-bottom: 0; }
+  .house-filters { justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--line); }
+  .house-filters button { font-size: 9px; min-height: 52px; }
+  .house-filters button span { font-size: 6px; margin-left: 4px; }
+  .house-filter-count { font-size: 7px; padding-top: 16px; }
+  .house-products { grid-template-columns: 1fr; gap: 42px; }
+  .house-product-image img { height: 430px; object-position: 75% center; }
+  .house-product-mountain .house-product-image img { object-position: 80% center; }
+  .house-product-bensons .house-product-image img { object-position: 69% center; }
+  .house-product-heading { align-items: center; margin-top: 25px; }
+  .house-product-heading h3 { font-size: 40px; }
+  .house-product-heading > span { font-size: 6px; }
+  .house-product-line { font-size: 12px; margin-top: 15px; }
+  .house-product-description { font-size: 12px; min-height: 0; max-width: none; }
+  .house-product-link { margin-top: 21px; font-size: 10px; }
+  .house-all-brands { margin-top: 36px; font-size: 10px; padding-top: 20px; }
+  .house-belief { padding: 55px 24px 48px; }
+  .house-belief-mark { width: 48px; height: 60px; font-size: 42px; margin-bottom: 27px; }
+  .house-belief .eyebrow { font-size: 7px; }
+  .house-belief h2 { font-size: clamp(35px,9.7vw,55px); line-height: 1.15; margin-top: 27px; }
+  .house-belief > p:last-of-type { font-size: 11px; }
+  .house-belief .house-link { margin-top: 16px; font-size: 9px; gap: 35px; }
+  .house-footer { padding: 40px 24px 26px; }
+  .house-footer-top { align-items: flex-start; gap: 20px; padding-bottom: 27px; }
+  .house-footer-wordmark { font-size: clamp(41px,11.2vw,65px); line-height: 1.03; }
+  .house-footer-wordmark em { display: block; }
+  .house-back-top { font-size: 7px; gap: 10px; white-space: nowrap; padding-top: 10px; }
+  .house-back-top span { font-size: 19px; }
+  .house-footer-bottom { grid-template-columns: 1fr; gap: 20px; padding-top: 25px; }
+  .house-footer-bottom nav { justify-content: space-between; gap: 15px; }
+  .house-footer-bottom nav a,.house-footer-bottom nav button { font-size: 9px; }
+  .house-footer-bottom > p { font-size: 10px; }
+  .house-footer-bottom .house-copyright { font-size: 8px; }
+}
+@media (max-width: 370px) {
+  .house-brand-signatures a { font-size: 19px; }
+  .house-brand-signatures .signature-mountain { font-size: 11px; letter-spacing: .7px; }
+  .house-filters button { font-size: 8px; }
+  .house-product-image img { height: 360px; }
+  .house-product-heading h3 { font-size: 36px; }
+  .house-hero-image img { aspect-ratio: 1; }
+}

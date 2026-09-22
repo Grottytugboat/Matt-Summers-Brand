@@ -1,0 +1,53 @@
+import { cp, mkdir, readdir, rm, stat } from "node:fs/promises";
+import { join } from "node:path";
+
+const output = new URL("../dist/", import.meta.url);
+const root = new URL("../", import.meta.url);
+await rm(output, { recursive: true, force: true });
+await mkdir(output, { recursive: true });
+for (const entry of [
+  "index.html",
+  "styles.css",
+  "house.css",
+  "house.js",
+  "app.js",
+  "fonts.css",
+  "fonts",
+  "mountain",
+  "bensons",
+  "collection",
+  "nightbird",
+  "nightbird.css",
+  "mega-menu.css",
+  "mega-menu.js",
+  "age-gate.css",
+  "studio",
+]) {
+  await cp(new URL(entry, root), new URL(entry, output), { recursive: true });
+}
+await mkdir(new URL("docs/", output), { recursive: true });
+for (const name of ["nightbird-launch-plan.md", "parent-name-options.md"]) {
+  await cp(new URL(`docs/${name}`, root), new URL(`docs/${name}`, output));
+}
+await mkdir(new URL("assets/", output), { recursive: true });
+for (const name of await readdir(new URL("assets/", root))) {
+  if (/\.(webp|jpe?g|svg|ico|mp4)$/.test(name)) {
+    await cp(
+      new URL(`assets/${name}`, root),
+      new URL(`assets/${name}`, output),
+    );
+  }
+}
+async function totalSize(path) {
+  const entries = await readdir(path, { withFileTypes: true });
+  const sizes = await Promise.all(
+    entries.map(async (entry) => {
+      const child = join(path, entry.name);
+      return entry.isDirectory() ? totalSize(child) : (await stat(child)).size;
+    }),
+  );
+  return sizes.reduce((sum, size) => sum + size, 0);
+}
+console.log(
+  `Built static showcase: ${((await totalSize(output.pathname)) / 1024).toFixed(0)} KB in dist/`,
+);

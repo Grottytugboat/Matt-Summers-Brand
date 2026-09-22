@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "strict": true,
+    "target": "ES2022",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "types": []
+  },
+  "files": [
+    "app.js",
+    "mega-menu.js",
+    "house.js",
+    "studio/studio.js",
+    "studio/plan.js",
+    "studio/names.js"
+  ]
+}

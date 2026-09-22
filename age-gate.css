@@ -1,0 +1,125 @@
+/* The supplied bird film is decorative; the age controls remain independent. */
+.age-gate {
+  --gate-accent: #d8bc7f;
+  --gate-cream: #f4efdf;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  color: var(--gate-cream);
+  background: #080e19;
+  color-scheme: dark;
+}
+.age-gate[data-age-brand="mountain"] { --gate-accent: #d7f36b; }
+.age-gate[data-age-brand="bensons"] { --gate-accent: #d3b475; }
+.age-gate[data-age-brand="nightbird"] { --gate-accent: #d5b47a; }
+.age-gate[data-age-brand="house"],
+.age-gate[data-age-brand="collection"] { --gate-accent: #ded1ad; --gate-cream: #f5f1e6; background: #0c201a; }
+.age-gate[data-age-brand="house"] .age-film-shade,
+.age-gate[data-age-brand="collection"] .age-film-shade { background: linear-gradient(90deg, #071c16ed 0%, #0c241bd9 30%, #162e2566 62%, #142e1f2b 100%), linear-gradient(0deg, #061811c9, transparent 45%, #10251a33); }
+.age-gate::backdrop { background: #080e19; backdrop-filter: none; }
+.age-experience {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  isolation: isolate;
+  padding: 30px clamp(28px, 7vw, 110px) 20px;
+}
+.age-atmosphere { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: #0b1423; }
+.age-film { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 56% center; opacity: .9; }
+.age-film-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #030a15e8 0%, #050d1bd9 30%, #08132360 62%, #09142624 100%), linear-gradient(0deg, #020813bb, transparent 38%, #050d1740);
+}
+.age-atmosphere::after { content: ""; position: absolute; inset: 14px; border: 1px solid #e4d2b712; }
+.age-gate[data-age-brand="mountain"] .age-film-shade { background: linear-gradient(90deg, #050d0ae8 0%, #09120ed6 30%, #101b1560 62%, #10201622 100%), linear-gradient(0deg, #020906bb, transparent 38%, #05100833); }
+.age-gate[data-age-brand="bensons"] .age-film-shade { background: linear-gradient(90deg, #110b05eb 0%, #130e09d9 30%, #231c1460 62%, #22170822 100%), linear-gradient(0deg, #0d0703bb, transparent 38%, #180f0740); }
+.age-masthead { display: flex; justify-content: space-between; gap: 24px; align-items: center; min-height: 50px; position: relative; }
+.age-brand-name { color: var(--gate-cream); font: 500 26px/1 'Space Grotesk', Arial, sans-serif; letter-spacing: 5px; }
+.age-masthead > span:last-child { color: #c0c9d0; font-size: 9px; letter-spacing: 2px; line-height: 1.6; }
+.age-gate[data-age-brand="bensons"] .age-brand-name { font: 400 38px/1 Georgia, serif; letter-spacing: -1.5px; }
+.age-gate[data-age-brand="nightbird"] .age-brand-name { font: 400 29px/1 Georgia, serif; letter-spacing: 5px; }
+.age-gate[data-age-brand="collection"] .age-brand-name { font-size: 18px; letter-spacing: 3px; }
+.age-gate[data-age-brand="house"] .age-brand-name,
+.age-gate[data-age-brand="collection"] .age-brand-name { font: 400 clamp(22px, 2.3vw, 30px)/1 Georgia, serif; letter-spacing: 3px; }
+.age-gate .age-card {
+  width: 100%;
+  max-width: 610px;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  align-self: flex-start;
+  padding: 60px 0 50px;
+  text-align: left;
+}
+.age-gate .age-card .eyebrow { color: var(--gate-accent); font-size: 9px; letter-spacing: 2.4px; line-height: 1.7; }
+.age-gate .age-card h2 { margin: 25px 0 0; color: var(--gate-cream); font: 400 clamp(56px, 6.3vw, 90px)/1.035 Georgia, 'Times New Roman', serif; letter-spacing: -3.4px; }
+.age-gate .age-card h2 em { color: var(--gate-accent); font-style: italic; font-weight: 400; }
+.age-gate[data-age-brand="mountain"] .age-card h2 { font: 400 clamp(72px, 8vw, 118px)/.95 'Bebas Neue', Impact, sans-serif; letter-spacing: -1px; text-transform: uppercase; }
+.age-gate[data-age-brand="mountain"] .age-card h2 em { font-style: normal; }
+.age-rule { width: 45px; height: 1px; margin: 29px 0 22px; background: var(--gate-accent); opacity: .6; }
+.age-gate .age-card #age-description { max-width: 325px; margin: 0; font-size: 13px; line-height: 1.85; color: #e0e5e9; }
+.age-gate .age-actions { width: 100%; margin: 25px 0 0; gap: 13px; align-items: flex-start; }
+.age-gate .age-actions .button { width: 268px; max-width: 100%; min-width: 0; min-height: 56px; padding: 19px 23px; color: #111720; background: var(--gate-accent); border: 1px solid var(--gate-accent); font-size: 12px; font-weight: 600; letter-spacing: .25px; transition: filter .2s ease; }
+.age-gate .age-actions .button:hover { filter: brightness(1.1); }
+.age-gate .age-actions .button:focus-visible { outline-color: var(--gate-cream); }
+.age-gate .age-no { color: #d8e0e5; min-height: 42px; padding: 10px 2px; font-size: 11px; text-decoration-color: #d8e0e580; }
+.age-gate .age-no:hover { color: white; }
+.age-gate .age-note { margin: 25px 0 0; font-size: 8px; letter-spacing: 1.8px; line-height: 1.8; color: #aab6c0; }
+.age-gate .age-denied { width: 100%; max-width: 390px; color: var(--gate-cream); padding: 22px 25px; border: 1px solid #d8bc7f60; background: #070d17bd; margin: 25px 0 0; }
+.age-gate .age-denied p:first-child { font: 400 23px/1.4 Georgia, serif; color: var(--gate-accent); }
+.age-gate .age-denied p + p { font-size: 12px; line-height: 1.75; margin-top: 12px; color: #d0d8e0; }
+.age-bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px; color: #b5c1cb; }
+.age-bottom > p { font-size: 8px; line-height: 1.7; letter-spacing: 1.5px; }
+.age-motion { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 14px; min-height: 44px; color: #e0e6eb; background: #040b1580; border: 1px solid #e0e6eb40; font-size: 10px; letter-spacing: .2px; white-space: nowrap; }
+.age-motion::before { content: ""; width: 6px; height: 9px; border-left: 1px solid; border-right: 1px solid; }
+.age-motion[aria-pressed="true"]::before { width: 0; height: 0; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 6px solid currentColor; border-right: 0; }
+.age-motion:hover { background: #0b1628bd; }
+@media (max-width: 900px) {
+  .age-experience { padding: 25px 36px 20px; }
+  .age-film { object-position: 62% center; }
+  .age-gate .age-card { max-width: 530px; }
+  .age-gate .age-card h2 { font-size: 70px; }
+  .age-gate[data-age-brand="mountain"] .age-card h2 { font-size: 90px; }
+}
+@media (max-width: 700px) {
+  .age-experience { padding: 23px 24px 15px; }
+  .age-masthead { min-height: 42px; }
+  .age-masthead > span:last-child { display: none; }
+  .age-brand-name { font-size: 22px; letter-spacing: 4px; }
+  .age-gate[data-age-brand="nightbird"] .age-brand-name { font-size: 24px; }
+  .age-gate[data-age-brand="bensons"] .age-brand-name { font-size: 34px; }
+  .age-gate .age-card { padding: 70px 0 35px; }
+  .age-gate .age-card h2 { font-size: clamp(48px, 11.7vw, 70px); letter-spacing: -2.2px; margin-top: 22px; }
+  .age-gate[data-age-brand="mountain"] .age-card h2 { font-size: clamp(61px, 15vw, 90px); letter-spacing: -.5px; }
+  .age-gate .age-card .eyebrow { font-size: 8px; letter-spacing: 1.6px; }
+  .age-gate .age-card #age-description { max-width: 290px; font-size: 12px; }
+  .age-rule { margin: 24px 0 19px; }
+  .age-gate .age-actions { margin-top: 23px; gap: 8px; }
+  .age-gate .age-note { font-size: 7px; letter-spacing: 1.25px; margin-top: 20px; }
+  .age-bottom > p { max-width: 160px; font-size: 7px; letter-spacing: 1px; }
+  .age-motion { font-size: 9px; padding-inline: 11px; }
+  .age-film-shade, .age-gate[data-age-brand="mountain"] .age-film-shade, .age-gate[data-age-brand="bensons"] .age-film-shade { background: linear-gradient(90deg, #050d17ba, #070f1b55), linear-gradient(0deg, #040b17d9 0%, #030b1766 57%, #0c142538); }
+}
+@media (max-height: 700px) {
+  .age-gate .age-card { padding-top: 35px; padding-bottom: 25px; }
+  .age-gate .age-card h2 { font-size: clamp(44px, 6.5vw, 64px); margin-top: 17px; letter-spacing: -2px; }
+  .age-gate[data-age-brand="mountain"] .age-card h2 { font-size: clamp(59px, 8vw, 80px); }
+  .age-rule { margin: 20px 0 16px; }
+  .age-gate .age-actions { margin-top: 20px; }
+  .age-gate .age-note { margin-top: 17px; }
+}
+@media (prefers-reduced-motion: reduce) { .age-gate .age-actions .button { transition: none; } }
