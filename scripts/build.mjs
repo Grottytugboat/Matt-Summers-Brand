@@ -21,8 +21,13 @@ for (const entry of [
   "mega-menu.css",
   "mega-menu.js",
   "age-gate.css",
+  "studio",
 ]) {
   await cp(new URL(entry, root), new URL(entry, output), { recursive: true });
+}
+await mkdir(new URL("docs/", output), { recursive: true });
+for (const name of ["nightbird-launch-plan.md", "parent-name-options.md"]) {
+  await cp(new URL(`docs/${name}`, root), new URL(`docs/${name}`, output));
 }
 await mkdir(new URL("assets/", output), { recursive: true });
 for (const name of await readdir(new URL("assets/", root))) {

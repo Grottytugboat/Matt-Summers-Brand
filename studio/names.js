@@ -1,0 +1,58 @@
+export const names = [
+  {
+    id: "summers-vale",
+    name: "Summers & Vale",
+    descriptor: "A house of distinctive drinks",
+    reason: "The strongest starting point. A personal connection to Matt, with the presence of a broader brand house and room for every product to retain its own identity.",
+    tagline: "Distinctive brands. One point of view.",
+    character: "Assured · personal · enduring",
+    screening: "No obvious exact-name drinks business surfaced in the preliminary web searches. Summers and Vale both occur elsewhere in drinks; broader similarity checks remain open.",
+  },
+  {
+    id: "fieldmere-house",
+    name: "Fieldmere House",
+    descriptor: "A considered collection of drinks",
+    reason: "A calm, substantial parent identity that can stand independently of any one founder or product. Particularly suited to a restrained wordmark and editorial brand presentation.",
+    tagline: "Individual character. Shared ambition.",
+    character: "Composed · substantial · spacious",
+    screening: "No obvious exact-name drinks business surfaced. Fieldmere appears in property, education and company names, so this is a creative candidate, not a cleared name.",
+  },
+  {
+    id: "still-field",
+    name: "Still & Field",
+    descriptor: "A house of character",
+    reason: "Connects the drinks category with an open, grounded sensibility. Gives Nightbird, Benson’s and Mountain a common home without forcing them into one visual style.",
+    tagline: "Many expressions. A shared point of view.",
+    character: "Grounded · tactile · thoughtful",
+    screening: "No obvious exact-name drinks business surfaced in searches using both & and and. Still is widely used in spirits; similar-name screening remains necessary.",
+  },
+  {
+    id: "rowe-vale",
+    name: "Rowe & Vale",
+    descriptor: "A collective of distinctive brands",
+    reason: "A concise, balanced name with the formality of a premium house. An alternative to a founder-led name, with enough breadth for future categories and collaborations.",
+    tagline: "Character, in every expression.",
+    character: "Refined · balanced · versatile",
+    screening: "No obvious exact-name drinks operator surfaced in the preliminary exact-name and category searches. The individual words are common; availability is unconfirmed.",
+  },
+  {
+    id: "harrow-tide",
+    name: "Harrow & Tide",
+    descriptor: "A collective with character",
+    reason: "The most expressive option: a meeting of grounded strength and movement. Offers a distinctive parent voice while leaving the individual product stories intact.",
+    tagline: "A collection with a point of view.",
+    character: "Distinctive · assured · expressive",
+    screening: "No obvious exact-name drinks business surfaced in exact-name, spelling-variant and category searches. No domain or trade mark availability has been established.",
+  },
+  {
+    id: "halden-house",
+    name: "Halden House",
+    descriptor: "A house of distinctive brands",
+    reason: "A compact name with a confident, architectural feel. Works well as the quiet authority above a portfolio of products with very different personalities.",
+    tagline: "One house. Distinctive worlds.",
+    character: "Architectural · restrained · confident",
+    screening: "No obvious exact-name drinks business surfaced. Halden is a Norwegian place name and Halden House has other uses; avoid implying Norwegian origin or established heritage.",
+  },
+];
+
+export const namingNote = "Creative shortlist · preliminary public-web screening, 22 September 2026. Trade marks, business names and domains are not cleared. Name previews apply only in this browser; the public brand stays unchanged until a name is chosen.";

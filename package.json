@@ -4,9 +4,10 @@
   "private": true,
   "description": "Savage Spirits parent brand and product showcase",
   "scripts": {
-    "lint": "eslint app.js mega-menu.js house.js",
+    "lint": "eslint app.js mega-menu.js house.js studio/*.js",
     "typecheck": "tsc --noEmit",
-    "build": "node scripts/build.mjs"
+    "build": "node scripts/build.mjs",
+    "test:studio": "node scripts/studio-check.cjs"
   },
   "engines": {
     "node": ">=22.13.0"
@@ -15,6 +16,7 @@
     "@eslint/js": "10.0.1",
     "eslint": "10.11.0",
     "globals": "17.12.0",
+    "playwright": "1.62.1",
     "typescript": "7.0.2"
   }
 }

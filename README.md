@@ -68,3 +68,17 @@ The home page introduces the parent brand and its portfolio. The dedicated Mount
 ## Parent brand architecture
 
 The homepage leads with Savage Spirits as the working parent identity, drawn from the supplied catalogue name. Mountain now has its own `/mountain/` product route, alongside Benson’s and Nightbird. The homepage includes a combined product still life, parent brand philosophy and accessible filters for spirits and ready-to-serve products. Shared navigation and breadcrumbs keep the parent home reachable from every brand. The brand name remains a presentation choice pending final confirmation; the site makes no claims about legal ownership or distribution coverage.
+
+## Brand Studio demonstration
+
+`/studio/` is a shareable, public planning demonstration, linked from the parent homepage footer. It is not an authenticated administration area. Do not use it for confidential information or real customer/creator records.
+
+The six views cover portfolio overview, the planned Nightbird campaign, storyboard reviews, goals and readiness, illustrative results, and the parent-name shortlist. It includes three creator slots, three creative concepts, a relative four-week launch plan, editable dates and objectives, twelve milestones, estimates and a simple order-economics calculator. All commitments, fees, sample creators and performance remain explicitly proposed or unconnected. No outreach, publishing, media buying or enquiries are performed.
+
+Changes are saved to this browser's local storage under `brand-studio-demo-v1`, with a visible fallback if storage is unavailable. They are not shared between Matt and Tim. The export button offers a formatted HTML plan (readable in a browser and printable to PDF) and a JSON backup of the full plan and local edits. Reset asks for confirmation and affects only the current browser's demo. Name selection previews the chosen name in the workspace without renaming the public site.
+
+The build publishes only the two intended planning documents from `docs/`; source notes and tests are not copied. `/docs/nightbird-launch-plan.md` describes the proposed pilot and `/docs/parent-name-options.md` records creative naming options and preliminary research. Naming research is not a trademark or domain clearance.
+
+To become a real private workspace, the next stage requires authentication, authorised roles, shared storage and an approval history tied to actual accounts. Personal-data capture and live attribution must be designed and connected before launching an enquiry campaign. Ecommerce remains outside this release.
+
+Run `npm run test:studio` with the local server running on port 4173 and Google Chrome installed. Use `STUDIO_BASE_URL` to verify a deployed preview. The test uses an isolated browser context and never submits data to external services.

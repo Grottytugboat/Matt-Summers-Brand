@@ -15,6 +15,9 @@
   "files": [
     "app.js",
     "mega-menu.js",
-    "house.js"
+    "house.js",
+    "studio/studio.js",
+    "studio/plan.js",
+    "studio/names.js"
   ]
 }
